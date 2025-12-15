@@ -402,15 +402,13 @@
   metabolisms:
     Medicine:
       metabolismRate: 0.2
-      effects:
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectPainkillersSalicylicAcid
-        type: Set
-        time: 1.5
+      statusEffects:
+      - statusEffect: StatusEffectPainkillersSalicylicAcid
         conditions:
         - !type:DamageGroupCondition
           damageGroup: Brute
           min: 35
+      effects:
       - !type:EvenHealthChange
         damage:
           Brute: -2
@@ -418,7 +416,7 @@
         - !type:DamageGroupCondition
           damageGroup: Brute
           min: 35
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: SalicylicAcid
           max: 15
       - !type:EvenHealthChange
@@ -426,7 +424,7 @@
           Brute: -2
           Burn: 2
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: SalicylicAcid
           min: 15
       - !type:EvenHealthChange
@@ -436,18 +434,17 @@
         - !type:DamageGroupCondition
           damageGroup: Brute
           max: 35
-      - !type:ModifyStatusEffect
+      - !type:RemoveStatusEffect
         effectProto: WoundBoneDeath
-        type: Remove
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: SalicylicAcid
           min: 50
       - !type:EvenHealthChange
         damage:
           Burn: 1
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: SalicylicAcid
           min: 35
 
@@ -462,15 +459,13 @@
   metabolisms:
     Medicine:
       metabolismRate: 0.2
-      effects:
-      - !type:ModifyStatusEffect
-        type: Set
-        time: 1.5
-        effectProto: StatusEffectPainkillersOxandrolone
+      statusEffects:
+      - statusEffect: StatusEffectPainkillersOxandrolone
         conditions:
         - !type:DamageGroupCondition
           damageGroup: Burn
           min: 35
+      effects:
       - !type:EvenHealthChange
         damage:
           Burn: -3
@@ -478,7 +473,7 @@
         - !type:DamageGroupCondition
           damageGroup: Burn
           min: 35
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: Oxandrolone
           max: 15
       - !type:EvenHealthChange
@@ -486,7 +481,7 @@
           Burn: -3
           Brute: 3
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: Oxandrolone
           min: 15
       - !type:EvenHealthChange
@@ -496,17 +491,16 @@
         - !type:DamageGroupCondition
           damageGroup: Burn
           max: 35
-      - !type:ModifyStatusEffect
-        type: Remove
+      - !type:RemoveStatusEffect
         effectProto: WoundHusking
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: Oxandrolone
           min: 50
       - !type:EvenHealthChange
         damage:
           Brute: 1
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: Oxandrolone
           min: 35
