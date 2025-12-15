@@ -96,13 +96,23 @@ public sealed partial class HeartSystem : EntitySystem
                     {
                         heartrate.Damage = FixedPoint2.Min(heartrate.Damage + amount, heartrate.MaxDamage);
                     }
+                    /*WL-Changes: this code was moved
 
                     if (heartrate.Damage >= heartrate.MaxDamage)
                     {
                         evt.Stop = true;
                     }
+                    */
                     Dirty(uid, heartrate);
                 }
+            
+
+                // WL-Changes: if heart if fully damaged, it stops regardless of strain. Start
+                if (heartrate.Damage >= heartrate.MaxDamage)
+                {
+                    evt.Stop = true;
+                }
+                // WL-Changes: if heart if fully damaged, it stops regardless of strain. End
             }
 
 
