@@ -309,6 +309,18 @@
   - BartenderHead
   - BartenderBowler
 
+# WL-Changes: Bartender Bartender eyes loadout Start
+- type: loadoutGroup
+  id: BartenderEyewear
+  name: loadout-group-bartender-glasses
+  minLimit: 0
+  loadouts:
+  - BartenderHudBeer
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+# WL-Changes: Bartender Bartender eyes loadout End
+
 - type: loadoutGroup
   id: BartenderJumpsuit
   name: loadout-group-bartender-jumpsuit
