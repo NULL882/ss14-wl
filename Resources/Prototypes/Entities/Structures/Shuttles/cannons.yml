@@ -25,7 +25,6 @@
     range: 200
   - type: DeviceLinkSink
     ports:
-    - Trigger
     - Toggle
     - On
     - Off
