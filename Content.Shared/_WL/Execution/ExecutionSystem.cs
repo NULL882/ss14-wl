@@ -170,7 +170,6 @@ public sealed class ExecutionSystem : EntitySystem
                  TryComp(uid, out GunComponent? laserGun))
         {
             DamageSpecifier? damageSpecifier = GetHitscanDamageFromProto(hitscanBatteryAmmo.Prototype);
-            Entity<GunComponent> ent = new Entity<GunComponent>(uid, laserGun);
 
             if (damageSpecifier == null)
             {
@@ -193,13 +192,13 @@ public sealed class ExecutionSystem : EntitySystem
             if (attacker == victim)
             {
                 _gunSystem.SetTarget(laserGun, victim);
-                _gunSystem.AttemptShoot(ent);
+                _gunSystem.AttemptShoot(uid, laserGun);
                 _damageable.TryChangeDamage(victim, damageSpecifier, origin: attacker);
             }
             else  //This number is set, because two Vectors with x0 y0 make Vector(NaN, Nan) direction, and this pass NaN value check... ¯\_(ツ)_/¯
             {
                 _gunSystem.SetTarget(laserGun, victim);
-                _gunSystem.AttemptShoot(attacker, ent, new EntityCoordinates(victim, 0.01984f, -0.00451f), target: victim);
+                _gunSystem.AttemptShoot(attacker, uid, laserGun, new EntityCoordinates(victim, 0.01984f, -0.00451f), target: victim);
                 _damageable.TryChangeDamage(victim, damageSpecifier, origin: attacker);
             }
 
@@ -223,17 +222,16 @@ public sealed class ExecutionSystem : EntitySystem
             //    //internalMsg = component.DefaultCompleteInternalGunExecutionMessage;
             //    //externalMsg = component.DefaultCompleteExternalGunExecutionMessage;
             //}
-            Entity<GunComponent> ent = new Entity<GunComponent>(uid, gun);
 
             if (attacker == victim)
             {
-                _gunSystem.AttemptShoot(ent);
+                _gunSystem.AttemptShoot(uid, gun);
             }
             else
             {
                 _gunSystem.SetTarget(gun, victim);
                 //This number is set, because two Vectors with x0 y0 make Vector(NaN, Nan) direction, and this pass NaN value check... ¯\_(ツ)_/¯
-                _gunSystem.AttemptShoot(attacker, ent, new EntityCoordinates(victim, 0.01984f, -0.00451f), target: victim);
+                _gunSystem.AttemptShoot(attacker, uid, gun, new EntityCoordinates(victim, 0.01984f, -0.00451f), target: victim);
             }
             args.Handled = true;
         }

@@ -7,7 +7,6 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Events;
-using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -79,9 +78,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         {
             trackers.Add(PlayTimeTrackingShared.TrackerAdmin);
             trackers.Add(PlayTimeTrackingShared.TrackerOverall);
-
-            if (!_cfg.GetCVar(CCVars.GameAdminJobTracking))
-                return;
+            return;
         }
 
         if (!IsPlayerAlive(player))

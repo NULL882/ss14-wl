@@ -56,20 +56,6 @@
   groupBy: "corvaxServerPins"
 
 - type: loadout
-  id: ClothingNeckLumenPin
-  storage:
-    back:
-    - ClothingNeckLumenPin
-  groupBy: "corvaxServerPins"
-
-- type: loadout
-  id: ClothingNeckVoidPin
-  storage:
-    back:
-    - ClothingNeckVoidPin
-  groupBy: "corvaxServerPins"
-
-- type: loadout
   id: ClothingNeckWhiteListPin
   storage:
     back:

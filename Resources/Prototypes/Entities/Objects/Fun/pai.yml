@@ -190,8 +190,6 @@
     graph: PotatoAI
     node: potatoai
 
-# PAI Actions
-
 - type: entity
   parent: ActionIntrinsicStore
   id: ActionPAIOpenShop

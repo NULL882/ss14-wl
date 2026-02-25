@@ -235,13 +235,15 @@ public static class ServerPackaging
         var depsContentExclusive = depsContent.Except(depsRobust).ToHashSet();
 
         // Remove .dll suffix and apply filtering.
-        var names = depsContentExclusive.Select(p => p[..^4]).Where(p => !ServerNotExtraAssemblies.Any(p.StartsWith)).ToList();
+        var names = depsContentExclusive.Select(p => p[..^4]).Where(p => !ServerNotExtraAssemblies.Any(p.StartsWith));
 
         // Corvax-Secrets-Start
+        names.Append("Content.Corvax.Interfaces.Shared");
+        names.Append("Content.Corvax.Interfaces.Server");
         if (UseSecrets)
         {
-            names.Add("Content.Corvax.Shared");
-            names.Add("Content.Corvax.Server");
+            names.Append("Content.Corvax.Shared");
+            names.Append("Content.Corvax.Server");
         }
         // Corvax-Secrets-End
 

@@ -730,7 +730,7 @@
         settings: default
       job: CentralCommandOfficial
     - type: Loadout
-      prototypes: [ CentcommGear ]
+      prototypes: [ CentcomGear ]
       roleLoadout: [ RoleSurvivalStandard ]
     # WL-Skills-start
     - type: InitialSkills
