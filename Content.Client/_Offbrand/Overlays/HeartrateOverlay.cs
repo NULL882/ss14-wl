@@ -48,11 +48,16 @@ public sealed class HeartrateOverlay : Overlay
 
     private SpriteSpecifier GetIcon(Entity<HeartrateComponent> ent)
     {
+        var severity = 0;
+
         if (!ent.Comp.Running)
             return HudStopped;
 
-        var max = 4;
-        var severity = Math.Min((int)Math.Round(max * _heart.Strain(ent)), max);
+        if (!_entityManager.HasComponent<PainNumbnessComponent>(ent.Owner)) // WL-Changes: fix PainNumbness
+        {
+            var max = 4;
+            severity = Math.Min((int)Math.Round(max * _heart.Strain(ent)), max);
+        }
         return Severities[severity];
     }
 
