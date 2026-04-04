@@ -8,28 +8,22 @@
     },
     "states": [
         {
-            "name": "camera"
+            "name": "rack"
         },
         {
-            "name": "card"
+            "name": "fill-0"
         },
         {
-            "name": "filter"
+            "name": "fill-1"
         },
         {
-            "name": "filter-top"
+            "name": "fill-2"
         },
         {
-            "name": "filter-gray"
+            "name": "fill-3"
         },
         {
-            "name": "filter-line"
-        },
-        {
-            "name": "filter-ghost"
-        },
-        {
-            "name": "filter-smart"
+            "name": "fill-4"
         }
     ]
 }
