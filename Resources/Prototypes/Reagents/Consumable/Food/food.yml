@@ -8,7 +8,7 @@
   flavor: nutriment
   color: "#24591F"
   metabolisms:
-    Food:
+    Metabolites:
       effects:
       - !type:SatiateHunger
 # WL android species start
@@ -61,14 +61,13 @@
   flavor: vitamin
   color: "#D3D3D3"
   metabolisms:
-    Food: #This makes it not compete with medicines, a large bonus for something that can heal
+    Metabolites: #This makes it not compete with medicines, a large bonus for something that can heal
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         probability: 0.5
         damage:
-          groups:
-            Brute: -0.5
-            Burn: -0.5
+          Brute: -0.5
+          Burn: -0.5
 # WL species start
         # Android
         conditions:
@@ -143,12 +142,11 @@
   flavor: protein
   color: "#FFFFE5"
   metabolisms:
-    Food:
+    Metabolites:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         probability: 0.5
         damage:
-          groups:
             Brute: -0.4
 # WL species start
         # Android
@@ -220,7 +218,7 @@
   color: white
   meltingPoint: 146.0
   metabolisms:
-    Food:
+    Metabolites:
       effects:
       - !type:SatiateHunger
         conditions:
