@@ -30,10 +30,4 @@ public sealed partial class DynamicTextWindow : FancyWindow
     {
         OnDynamicTextSaveButtonPressed?.Invoke(Rope.Collapse(CDynamicTextInput.TextRope).Trim());
     }
-
-    private void OnClose(BaseButton.ButtonEventArgs obj)
-    {
-        base.Closed();
-        SendMessage(new CloseEuiMessage());
-    }
 }

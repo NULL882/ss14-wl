@@ -615,7 +615,7 @@ namespace Content.Server.Administration.Systems
 
             // Wl-height start
             // Change Height :)
-            if (_adminManager.IsAdmin(player) && EntityManager.HasComponent<HumanoidProfileComponent>(args.Target))
+            if (_adminManager.IsAdmin(player) && HasComp<HumanoidProfileComponent>(args.Target))
             {
                 Verb verb = new()
                 {

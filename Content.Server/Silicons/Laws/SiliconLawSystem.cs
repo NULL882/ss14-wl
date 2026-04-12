@@ -40,6 +40,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
     private static readonly ProtoId<SiliconLawsetPrototype> DefaultCrewLawset = "Crewsimov";
 
+    private static readonly string SAITag = "StationAi"; // WL-Changes
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -69,7 +71,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             return;
 
         // WL-Changes-start
-        if (HasComp<AiRemoteControllerComponent>(uid) || _tagSystem.HasTag(uid, "StationAi"))
+        if (HasComp<AiRemoteControllerComponent>(uid) || _tagSystem.HasTag(uid, SAITag))
             return;
         // WL-Changes-end
 
