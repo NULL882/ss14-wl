@@ -55,8 +55,7 @@
   - type: HumanoidProfile
     species: Golem
   - type: Inventory
-    speciesId: vulpkanin
-#Corvax-Vulp_Port start
+    speciesId: reptilian
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -68,7 +67,6 @@
           32:
             sprite: Corvax/Mobs/Species/displacement.rsi
             state: shoes
-    #########
     displacements:
       jumpsuit:
         sizeMaps:
@@ -80,332 +78,14 @@
           32:
             sprite: Corvax/Mobs/Species/displacement.rsi
             state: shoes
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
-            state: outerclothing
-    #  jumpsuit:
-    #    sizeMaps:
-    #      32:
-    #        sprite: Mobs/Species/Vulpkanin/displacement.rsi
-    #        state: jumpsuit
-      back:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: back
-      #outerClothing:
-      #  sizeMaps:
-      #    32:
-      #      sprite: Mobs/Species/Vulpkanin/displacement.rsi
-      #      state: outerwear
-      gloves:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: hand
-      #shoes:
-      #  sizeMaps:
-      #    32:
-      #      sprite: Mobs/Species/Vulpkanin/displacement.rsi
-      #      state: shoes
-#Corvax-Vulp_Port end
-      head:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: head
-      neck:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: neck
-      eyes:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: eyes
-      belt:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: belt
-
-- type: entity
-  save: false
-  name: Urist McFish
-  parent:
-  - AppearanceGolem
-  - BaseSpeciesMobOrganic
-  id: MobGolem
-  components: # TODO: Give species uniq features
-    - type: Body
-      prototype: Golem
-      requiredLegs: 2
-    - type: Hunger
-    - type: Icon
-      sprite: _WL/Mobs/Species/Golem/parts.rsi
-      state: full
-    - type: Thirst
-    - type: Perishable
-    - type: MeleeWeapon
-      soundHit:
-        collection: Punch
-      animation: WeaponArcClaw
-    - type: Butcherable
-      butcheringType: Spike
-      spawned:
-        - id: FoodMeatHuman
-          amount: 5
-    - type: Vocal
-      sounds:
-        Male: MaleGolem
-        Female: FemaleGolem
-        Unsexed: MaleGolem
-    - type: Wagging
-    - type: Languages
-      speaking:
-        - Translate
-      understood:
-        - Translate
-      specieLanguage: Sarengis
-
-- type: entity
-  parent: OrganBase
-  id: OrganGolem
-  abstract: true
-  suffix: golem
-
-- type: entity
-  id: OrganGolemMetabolizer
-  abstract: true
-  components:
-  - type: Metabolizer
-    metabolizerTypes: [ Golem ]
-
-- type: entity
-  parent: OrganGolem
-  id: OrganGolemInternal
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: Mobs/Species/Golem/organs.rsi
-
-- type: entity
-  id: OrganGolemVisual
-  abstract: true
-  components:
-  - type: VisualOrgan
-    data:
-      sprite: _WL/Mobs/Species/Golem/parts.rsi # Mobs/Species/Akula/parts.rsi #Corvax-Vulp_Port
-  - type: VisualOrganMarkings
-    markingData:
-      group: Golem
-
-- type: entity
-  parent: [ OrganGolem, OrganGolemVisual ]
-  id: OrganGolemExternal
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: _WL/Mobs/Species/Golem/parts.rsi #Mobs/Species/Akula/parts.rsi #Corvax-Vulp_Port
-
-- type: entity
-  parent: [ OrganBaseTorso, OrganBaseTorso, OrganGolemExternal ]
-  id: OrganGolemTorso
-
-- type: entity
-  parent: [ OrganBaseHead, OrganBaseHead, OrganGolemExternal ]
-  id: OrganGolemHead
-  components:
-  - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.HeadTop
-    - enum.HumanoidVisualLayers.HeadSide
-
-- type: entity
-  parent: [ OrganBaseArmLeft, OrganGolemExternal ]
-  id: OrganGolemArmLeft
-
-- type: entity
-  parent: [ OrganBaseArmRight, OrganGolemExternal ]
-  id: OrganGolemArmRight
-
-- type: entity
-  parent: [ OrganBaseHandLeft, OrganGolemExternal ]
-  id: OrganGolemHandLeft
-
-- type: entity
-  parent: [ OrganBaseHandRight, OrganGolemExternal ]
-  id: OrganGolemHandRight
-
-- type: entity
-  parent: [ OrganBaseLegLeft, OrganGolemExternal ]
-  id: OrganGolemLegLeft
-
-- type: entity
-  parent: [ OrganBaseLegRight, OrganGolemExternal ]
-  id: OrganGolemLegRight
-
-- type: entity
-  parent: [ OrganBaseFootLeft, OrganGolemExternal ]
-  id: OrganGolemFootLeft
-
-- type: entity
-  parent: [ OrganBaseFootRight, OrganGolemExternal ]
-  id: OrganGolemFootRight
-
-- type: entity
-  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganGolemInternal ]
-  id: OrganGolemCore
-  name: Spark
-  description: "A prison for the soul"
-  components:
-  - type: Instrument
-    allowPercussion: false
-    handheld: false
-    bank: 1
-    program: 52 # микрофон на 1 режиме
-  - type: UserInterface
-    interfaces:
-     enum.InstrumentUiKey.Key:
-       type: InstrumentBoundUserInterface
-  - type: Sprite
-    layers:
-    - state: core-off
-      map: ["fire"]
-  - type: ToggleableGhostRole
-    roleName: golem-system-role-name
-    roleDescription: golem-system-role-description
-    roleRules: ghost-role-component-default-rules
-    examineTextMindPresent: golem-system-role-mind-present
-    examineTextMindSearching: golem-system-role-mind-searching
-    examineTextNoMind: golem-system-role-mind-off
-    beginSearchingText: golem-system-role-mind-searching-begin
-    mindRoles:
-    - MindRoleGhostRoleNeutral
-    wipeVerbText: golem-system-role-wipe
-    wipeVerbPopup: golem-system-role-wipe-popup
-    stopSearchVerbText: golem-system-role-search-stop
-    stopSearchVerbPopup: golem-system-role-search-stop-popup
-  - type: Input
-    context: "human"
-  - type: GolemCore # Играет музыку
-    midiActionId: "ActionGolemCorePlayMidi"
-  - type: Examiner
-  - type: DoAfter
-  - type: Actions
-  - type: TypingIndicator
-    proto: golem
-  - type: TTS # Corvax-TTS
-    voice: Gollum
-  - type: Grammar
-    attributes:
-      proper: true
-  - type: Speech
-    speechVerb: Moth
-    speechSounds: Tenor
-  - type: MobState
-    allowedStates:
-      - Alive
-  - type: Emoting
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableGhostRoleVisuals.Status:
-        fire:
-          Off: { state: core-off }
-          On: { state: core-on }
-  - type: Tag
-    tags:
-    - MindTransferTarget
-
-- type: entity
-  parent: [ OrganBaseStomach, OrganGolemInternal, OrganGolemMetabolizer, BaseHeaterMachine ]
-  id: OrganGolemFurnace
-  name: furnace
-  description: "It radiates comfort and can even be used for cooking if fixed"
-  components:
-  - type: Transform
-    anchored: false
-  - type: Physics
-    bodyType: Dynamic
-  - type: Sprite
-    sprite: _WL/Mobs/Species/Golem/organs.rsi
-    drawdepth: SmallObjects
-    snapCardinals: true
-    layers:
-    - state: stomach-off
-    - map: ["enum.EntityHeaterVisuals.Setting"]
-      visible: false
-  - type: Organ
-  - type: Stomach
-    specialDigestible:
-      tags:
-      - Ore
-      - Trash
-      - Wooden
-      - ClothMade
-      - Paper
-      - Fruit
-      - ReptilianFood
-      - Meat
-      - Pill
-      - Crayon
-  - type: SolutionContainerManager
-    solutions:
-      stomach:
-        maxVol: 20
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 5
-  - type: Metabolizer
-    maxReagents: 2
-    metabolizerTypes: [Golem]
-    updateInterval: 0.5
-    removeEmpty: true
-    groups:
-    - id: Alcohol
-      rateModifier: 0.1
-    - id: Food
-    - id: Drink
-    - id: Medicine
-    - id: Poison
-    - id: Golem
-  - type: ApcPowerReceiver
-    needsPower: false
-  - type: EntityHeater
-    power: 1200
-  - type: ExtensionCableReceiver
-  - type: LightningTarget
-    priority: 1
-  - type: ItemPlacer
-    maxEntities: 1
-    whitelist:
-      components:
-      - Temperature
-  - type: PlaceableSurface
-  - type: GenericVisualizer
-    visuals:
-      enum.EntityHeaterVisuals.Setting:
-        enum.EntityHeaterVisuals.Setting:
-          Off: { visible: false }
-          Low: { visible: true, state: stomach-on }
-          Medium: { visible: true, state: stomach-on }
-          High: { visible: true, state: stomach-on }
-  - type: Appearance
 
 - type: entity
   save: false
   name: Urist McGolem
-  id: BaseMobGolem
   parent:
-  - MobFlammable
-  - BaseSpeciesMob
-  abstract: true
+  - AppearanceGolem
+  - BaseSpeciesMobOrganic
+  id: MobGolem
   components:
     - type: OfferItem # CorvaxGoob-Offer
     - type: Damageable
@@ -421,11 +101,6 @@
       baseDecayRate: 0.03
     - type: HardSlip
       fallDamage: 14 # учитывает резисты, урон меньше
-    #- type: Butcherable
-    #  butcheringType: Spike
-    #  spawned:
-    #  - id: SteelOre
-    #    amount: 5
     - type: RangedDamageSound
       soundGroups:
         Brute:
@@ -436,30 +111,6 @@
           collection:
             MetalLaserImpact
     - type: FlashImmunity
-    - type: Inventory
-      speciesId: reptilian
-      femaleDisplacements:
-        jumpsuit:
-          sizeMaps:
-            32:
-              sprite: Corvax/Mobs/Species/displacement.rsi
-              state: jumpsuit-female
-        shoes:
-          sizeMaps:
-            32:
-              sprite: Corvax/Mobs/Species/displacement.rsi
-              state: shoes
-      displacements:
-        jumpsuit:
-          sizeMaps:
-            32:
-              sprite: Corvax/Mobs/Species/displacement.rsi
-              state: jumpsuit
-        shoes:
-          sizeMaps:
-            32:
-              sprite: Corvax/Mobs/Species/displacement.rsi
-              state: shoes
     - type: Puller
       needsHands: true
     - type: Bloodstream
@@ -646,3 +297,231 @@
         - Translate
       understood:
         - Translate
+
+- type: entity
+  parent: OrganBase
+  id: OrganGolem
+  abstract: true
+  suffix: golem
+
+- type: entity
+  id: OrganGolemMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Golem ]
+
+- type: entity
+  parent: OrganGolem
+  id: OrganGolemInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Golem/organs.rsi
+
+- type: entity
+  id: OrganGolemVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Golem
+
+- type: entity
+  parent: [ OrganGolem, OrganGolemVisual ]
+  id: OrganGolemExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganGolemExternal ]
+  id: OrganGolemTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganGolemExternal ]
+  id: OrganGolemHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganGolemExternal ]
+  id: OrganGolemArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganGolemExternal ]
+  id: OrganGolemArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganGolemExternal ]
+  id: OrganGolemHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganGolemExternal ]
+  id: OrganGolemHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganGolemExternal ]
+  id: OrganGolemLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganGolemExternal ]
+  id: OrganGolemLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganGolemExternal ]
+  id: OrganGolemFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganGolemExternal ]
+  id: OrganGolemFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganGolemInternal ]
+  id: OrganGolemCore
+  name: Spark
+  description: "A prison for the soul"
+  components:
+  - type: Instrument
+    allowPercussion: false
+    handheld: false
+    bank: 1
+    program: 52 # микрофон на 1 режиме
+  - type: UserInterface
+    interfaces:
+     enum.InstrumentUiKey.Key:
+       type: InstrumentBoundUserInterface
+  - type: Sprite
+    layers:
+    - state: core-off
+      map: ["fire"]
+  - type: ToggleableGhostRole
+    roleName: golem-system-role-name
+    roleDescription: golem-system-role-description
+    roleRules: ghost-role-component-default-rules
+    examineTextMindPresent: golem-system-role-mind-present
+    examineTextMindSearching: golem-system-role-mind-searching
+    examineTextNoMind: golem-system-role-mind-off
+    beginSearchingText: golem-system-role-mind-searching-begin
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+    wipeVerbText: golem-system-role-wipe
+    wipeVerbPopup: golem-system-role-wipe-popup
+    stopSearchVerbText: golem-system-role-search-stop
+    stopSearchVerbPopup: golem-system-role-search-stop-popup
+  - type: Input
+    context: "human"
+  - type: GolemCore # Играет музыку
+    midiActionId: "ActionGolemCorePlayMidi"
+  - type: Examiner
+  - type: DoAfter
+  - type: Actions
+  - type: TypingIndicator
+    proto: golem
+  - type: TTS # Corvax-TTS
+    voice: Gollum
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Tenor
+  - type: MobState
+    allowedStates:
+      - Alive
+  - type: Emoting
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        fire:
+          Off: { state: core-off }
+          On: { state: core-on }
+  - type: Tag
+    tags:
+    - MindTransferTarget
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganGolemInternal, OrganGolemMetabolizer, BaseHeaterMachine ]
+  id: OrganGolemFurnace
+  name: furnace
+  description: "It radiates comfort and can even be used for cooking if fixed"
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Golem/organs.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: stomach-off
+    - map: ["enum.EntityHeaterVisuals.Setting"]
+      visible: false
+  - type: Organ
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Ore
+      - Trash
+      - Wooden
+      - ClothMade
+      - Paper
+      - Fruit
+      - ReptilianFood
+      - Meat
+      - Pill
+      - Crayon
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 20
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [Golem]
+    updateInterval: 0.5
+    removeEmpty: true
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+    - id: Food
+    - id: Drink
+    - id: Medicine
+    - id: Poison
+    - id: Golem
+  - type: ApcPowerReceiver
+    needsPower: false
+  - type: EntityHeater
+    power: 1200
+  - type: ExtensionCableReceiver
+  - type: LightningTarget
+    priority: 1
+  - type: ItemPlacer
+    maxEntities: 1
+    whitelist:
+      components:
+      - Temperature
+  - type: PlaceableSurface
+  - type: GenericVisualizer
+    visuals:
+      enum.EntityHeaterVisuals.Setting:
+        enum.EntityHeaterVisuals.Setting:
+          Off: { visible: false }
+          Low: { visible: true, state: stomach-on }
+          Medium: { visible: true, state: stomach-on }
+          High: { visible: true, state: stomach-on }
+  - type: Appearance
+

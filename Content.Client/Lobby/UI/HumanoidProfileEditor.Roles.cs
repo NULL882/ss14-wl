@@ -326,6 +326,8 @@ public sealed partial class HumanoidProfileEditor
                 };
                 // WL-Skills-end
 
+                _jobPriorities.Add((job.ID, subnameSelector, selector));
+                jobContainer.AddChild(selector);
 
                 // WL-Skills-Edit-start
                 var buttonsContainer = new BoxContainer
