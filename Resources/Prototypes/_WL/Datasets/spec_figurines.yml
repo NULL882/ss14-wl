@@ -290,7 +290,7 @@
   id: FigurinesWLSpecialEdwardSnow
   values:
     prefix: figurines-wl-special-edwardsnow-
-    count: 6
+    count: 5
 
 - type: localizedDataset
   id: FigurinesWLSpecialValeriaTutova
