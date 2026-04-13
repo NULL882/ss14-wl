@@ -47,7 +47,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Cischi, Arachnid, Moth ] # WL Cischi species
+          type: [ Human, Animal, Rat, Plant, Arachnid, Moth ] # WL Cischi species
       #- !type:MovespeedModifier
       #  conditions:
       #  - !type:ReagentCondition
@@ -57,12 +57,6 @@
       #    type: [ Cischi ]
       #  walkSpeedModifier: 0.85
       #  sprintSpeedModifier: 0.85
-      - !type:SatiateHunger
-        factor: -0.005
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Cischi ]
-      # WL Cischi species end
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -106,28 +100,9 @@
     Bloodstream:
       effects:
       - !type:HealthChange
-# WL species start
-        # Cischi
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Cischi ]
-          inverted: true
-# WL species end
         damage:
           types:
             Poison: 1.5
-# WL species start
-        # Cischi
-      - !type:HealthChange
-        conditions:
-        damage:
-          types:
-            Asphyxiation: 3
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-# WL species end
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
@@ -135,27 +110,10 @@
       effects:
       - !type:HealthChange
         ignoreResistances: true
-# WL species start
-        # Cischi
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Cischi ]
-          inverted: true
-# WL species end
         damage:
           types:
             Poison:
               0.1
-# WL species start
-        # Cischi
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Cischi ]
-        damage:
-          types:
-            Asphyxiation: 1
-# WL species end
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
@@ -243,7 +201,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Plant, Cischi ] # WL Cischi species
+          type: [ Plant ] # WL Cischi species
       - !type:HealthChange
         minScale: 0.5
         conditions:
@@ -435,19 +393,6 @@
         damage:
           types:
             Cellular: 0.05
-      # WL Cischi species start
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Cischi ]
-        ignoreResistances: true
-        damage:
-          types:
-            Cellular: -0.01
-          Brute: -0.02
-          Burn: -0.02
-          Toxin: -0.02
-      # WL Cischi species end
       - !type:ModifyStatusEffect
         minScale: 1
         effectProto: StatusEffectSeeingRainbow
@@ -467,22 +412,3 @@
         messages: [ "frezon-euphoric" ]
         probability: 0.1
         minScale: 1
-# WL golem species start
-    Golem:
-      effects:
-      - !type:AdjustTemperature
-        conditions:
-        - !type:TemperatureCondition
-          min: 160.15
-        amount: -30000
-      - !type:SatiateHunger
-        factor: -3
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentCondition
-          reagent: Frezon
-          min: 5
-        key: ForcedSleep
-        component: ForcedSleeping
-        type: Add
-# WL golem species end

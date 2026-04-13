@@ -3,7 +3,6 @@
   name: species-name-akula
   roundStart: true
   prototype: MobAkula
-  sprites: MobAkulaSprites
   defaultSkinTone: "#164b60"
   dollPrototype: AppearanceAkula
   skinColoration: Hues

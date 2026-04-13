@@ -276,10 +276,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
         factor: -4
-    Cischi:
-      effects:
-      - !type:Drunk
-        boozePower: 10 #2 # WL-Changes
 
 - type: reagent
   id: Diethylamine

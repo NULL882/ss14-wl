@@ -44,27 +44,12 @@
         - !type:MetabolizerTypeCondition
           type: [ Akula ]
         damage:
-          groups:
-            Brute: -0.2
+          Brute: -0.2
           types:
             Poison: -0.125 ##Should be about what it was when it healed the toxin group
             Heat: -0.095
             Shock: -0.095
             Cold: -0.095
-# WL-Changes-end
-    Cischi:
-       effects:
-       - !type:HealthChange
-         damage:
-           groups:
-             Toxin: 1
-  plantMetabolism:
-    - !type:PlantAdjustWater
-      amount: 0.5
-  footstepSound:
-    collection: FootstepBlood
-    params:
-      volume: 6
 
 - type: reagent
   parent: Blood
@@ -192,9 +177,8 @@
         probability: 0.25
 # WL species start
         conditions:
-        # Golem
         - !type:MetabolizerTypeCondition
-          type: [ Golem, Biorobotic ]
+          type: [ Biorobotic ]
           inverted: true
 # WL species end
 
@@ -229,18 +213,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Golem, Biorobotic ]
           inverted: true
-      # Golem
-      - !type:MovementSpeedModifier
-        walkSpeedModifier: 2
-        sprintSpeedModifier: 2
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-      - !type:SatiateHunger
-        factor: 10
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
 # WL species end
       - !type:ModifyBleed
         amount: -1.5
@@ -265,13 +237,6 @@
     collection: FootstepBlood
     params:
       volume: 6
-  metabolisms:
-    Food:
-      effects:
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
 
 - type: reagent
   id: Vomit

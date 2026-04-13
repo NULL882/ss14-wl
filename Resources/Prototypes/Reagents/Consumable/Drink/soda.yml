@@ -308,8 +308,6 @@
           reagent: FourteenLoko
           min: 10
 # WL android species end
-    Poison:
-      effects:
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition

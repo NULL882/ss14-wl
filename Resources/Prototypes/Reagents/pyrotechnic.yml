@@ -31,13 +31,6 @@
     Bloodstream:
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Heat: 2
@@ -65,29 +58,11 @@
     Bloodstream:
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Heat: 2
             Poison: 1
             Caustic: 0.5 # based off napalm being an irritant
-
-# WL species start
-      - !type:HealthChange
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-        damage:
-          types:
-            Caustic: 0.5
-# WL species end
       - !type:Flammable
         multiplier: 0.4
 
@@ -104,13 +79,6 @@
     Bloodstream:
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Heat: 3
@@ -143,13 +111,6 @@
     Bloodstream:
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Heat: 2
@@ -159,16 +120,6 @@
         multiplier: 0.2
       - !type:AdjustTemperature
         amount: 6000
-# WL species start
-      - !type:HealthChange
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-        damage:
-          types:
-            Caustic: 0.5
-# WL species end
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
@@ -237,35 +188,12 @@
             Poison: 1
       - !type:Flammable
         multiplier: 0.4
-# WL species start
-    # Golem
-    Drink:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-        damage:
-          groups:
-            Brute: 0.2
-      - !type:Drunk
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-        boozePower: 3
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-    Medicine:
-      effects:
       - !type:ModifyBloodLevel
         conditions:
         - !type:MetabolizerTypeCondition
           # Android
           type: [ Biorobotic ]
         amount: 0.5
-
 # WL species end
 
 - type: reagent

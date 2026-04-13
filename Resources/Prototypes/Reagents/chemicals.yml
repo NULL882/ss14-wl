@@ -38,13 +38,6 @@
     Bloodstream:
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Poison: -1
@@ -204,15 +197,6 @@
   flavor: bitter
   color: "#E6E6DA"
   physicalDesc: reagent-physical-desc-crystalline
-  # WL-Changes-Start
-  metabolisms:
-    Food:
-      effects:
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-  # WL-Changes-End
 
 - type: reagent
   id: Rororium

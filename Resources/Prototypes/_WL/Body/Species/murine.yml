@@ -94,9 +94,6 @@
   - BaseSpeciesMobOrganic
   id: MobMurine
   components:
-  - type: Body
-    prototype: Murine
-    requiredLegs: 2
   - type: Hunger
     baseDecayRate: 0.032
   - type: Icon

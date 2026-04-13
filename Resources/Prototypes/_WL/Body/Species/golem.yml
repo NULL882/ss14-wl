@@ -11,7 +11,7 @@
     enum.HumanoidVisualLayers.HeadSide:
       limit: 1
       required: true
-      defaultMarkings: [GolemBaseHead]
+      default: [GolemBaseHead]
     enum.HumanoidVisualLayers.LArm:
       limit: 2
       required: false
@@ -150,10 +150,6 @@
       - Muted
       - ForcedSleep
       - StaminaModifier
-    - type: Body
-      prototype: Golem
-      requiredLegs: 2
-      gibSound: /Audio/Effects/bone_rattle.ogg
     - type: MobState
     - type: MobThresholds
       thresholds:
@@ -495,19 +491,6 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Metabolizer
-    maxReagents: 2
-    metabolizerTypes: [Golem]
-    updateInterval: 0.5
-    removeEmpty: true
-    groups:
-    - id: Alcohol
-      rateModifier: 0.1
-    - id: Food
-    - id: Drink
-    - id: Medicine
-    - id: Poison
-    - id: Golem
   - type: ApcPowerReceiver
     needsPower: false
   - type: EntityHeater

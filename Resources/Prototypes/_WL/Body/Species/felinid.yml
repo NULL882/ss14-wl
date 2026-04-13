@@ -101,8 +101,6 @@
       Male: MaleFelinid
       Female: FemaleFelinid
       Unsexed: MaleFelinid
-  - type: Body
-    prototype: Felinid
 #  - type: Damageable
 #    damageContainer: Biological
 #    damageModifierSet: Felinid

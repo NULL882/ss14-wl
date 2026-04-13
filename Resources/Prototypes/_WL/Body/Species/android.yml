@@ -57,7 +57,7 @@
     enum.HumanoidVisualLayers.Overlay:
       limit: 1
       required: true
-      defaultMarkings: [ AndroidSensors ]
+      default: [ AndroidSensors ]
 
 - type: entity
   parent: BaseSpeciesAppearance
@@ -201,9 +201,6 @@
     shiveringHeatRegulation: 2000
     normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 25
-  - type: Body
-    prototype: Android
-    requiredLegs: 2
   - type: Damageable
     damageContainer: BioRobotic
     damageModifierSet: BioRobotic

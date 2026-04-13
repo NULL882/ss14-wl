@@ -178,13 +178,6 @@
   meltingPoint: -16.0
   tileReactions:
   - !type:FlammableTileReaction {}
-  metabolisms:
-    Food:
-      effects:
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
 
 - type: reagent
   id: CapsaicinOil
@@ -217,10 +210,6 @@
         type: Local
         messages: [ "capsaicin-effect-light-burn" ]
         probability: 0.2
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
 
 - type: reagent
   id: CocoaPowder #Candy and chocolate

@@ -3,7 +3,6 @@
   name: species-name-murine
   roundStart: true
   prototype: MobMurine
-  sprites: MobMurineSprites
   defaultSkinTone: "#FFFFFF"
   markingLimits: MobMurineMarkingLimits
   dollPrototype: AppearanceMurine

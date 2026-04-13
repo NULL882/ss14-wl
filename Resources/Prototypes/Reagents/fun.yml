@@ -41,10 +41,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Moth ]
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
 
 - type: reagent
   id: BuzzochloricBees
@@ -178,17 +174,6 @@
       - !type:Electrocute
         siemensCoefficient: 0.5
         probability: 0.5
-# WL species start
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
-        time: 16
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-# WL species end
 
 - type: reagent
   id: Razorium
@@ -217,13 +202,6 @@
       metabolismRate : 3.00
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
              Slash : 9
@@ -279,13 +257,6 @@
       metabolismRate : 0.45
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
              Cold: 0.01 # slightly nips directly, other cold damage comes from the temp change
@@ -295,12 +266,6 @@
         - !type:ReagentCondition
           reagent: Fresium
           max: 35
-# WL species start
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         type: Local
         visualType: LargeCaution
         messages: [ "fresium-effect-freeze-insides"]
@@ -310,12 +275,6 @@
         - !type:ReagentCondition
           reagent: Fresium
           max: 35
-# WL species start
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         type: Local
         visualType: LargeCaution
         messages: [ "fresium-effect-slow"]
@@ -324,24 +283,12 @@
         conditions:
         - !type:TemperatureCondition
           min: 160.15 # not quite enough for cryo, but can speed it up if you wanna take the risk
-# WL species start
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         amount: -10000
       - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition
           reagent: Fresium
           max: 40 # slows when less than 40
-# WL species start
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         walkSpeedModifier: 0.6
         sprintSpeedModifier: 0.6
       - !type:MovementSpeedModifier
@@ -349,12 +296,6 @@
         - !type:ReagentCondition
           reagent: Fresium
           min: 40 # your legs stop working when above 40
-# WL species start
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         walkSpeedModifier: 0.00
         sprintSpeedModifier: 0.00
       - !type:PopupMessage
@@ -362,39 +303,10 @@
         - !type:ReagentCondition
           reagent: Fresium
           min: 40
-# WL species start
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         type: Local
         visualType: LargeCaution
         messages: [ "fresium-effect-frozen"]
         probability: 0.4
-# WL golem species start
-    Golem:
-      effects:
-      - !type:AdjustTemperature
-        conditions:
-        - !type:TemperatureCondition
-          min: 160.15
-        amount: -10000
-      - !type:SatiateHunger
-        factor: -3
-      - !type:HealthChange
-        damage:
-          types:
-             Cold: 0.01 # slightly nips directly, other cold damage comes from the temp change
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentCondition
-          reagent: Fresium
-          min: 8
-        key: ForcedSleep
-        component: ForcedSleeping
-        type: Add
-# WL golem species end
 
 - type: reagent
   id: Laughter

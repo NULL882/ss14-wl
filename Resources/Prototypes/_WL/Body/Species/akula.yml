@@ -81,9 +81,6 @@
   - BaseSpeciesMobOrganic
   id: MobAkula
   components: # TODO: Give species uniq features
-    - type: Body
-      prototype: Akula
-      requiredLegs: 2
     - type: Hunger
     - type: Icon
       sprite: _WL/Mobs/Species/Akula/parts.rsi

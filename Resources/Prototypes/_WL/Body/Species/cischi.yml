@@ -21,7 +21,7 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
-      defaultMarkings: [ CischiTail ]
+      default: [ CischiTail ]
     enum.HumanoidVisualLayers.LArm:
       limit: 2
       required: false
@@ -202,9 +202,6 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
-  - type: Body
-    prototype: Cischi
-    requiredLegs: 2
   - type: PointLight
     energy: 1
     radius: 2

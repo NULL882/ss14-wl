@@ -3,7 +3,6 @@
   name: species-name-android
   roundStart: true
   prototype: MobAndroid
-  sprites: MobAndroidSprites
   dollPrototype: AppearanceAndroid
   skinColoration: Hues
   minHeight: 120

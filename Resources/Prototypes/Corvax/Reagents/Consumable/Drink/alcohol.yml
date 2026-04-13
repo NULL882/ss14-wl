@@ -17,7 +17,7 @@
       metabolites:
         Ethanol: 0.07
 # WL android species start
-    Drink:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -73,7 +73,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Bloodstream:
       effects:
 # WL android species start
       - !type:HealthChange
@@ -114,7 +114,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Bloodstream:
       effects:
 # WL android species start
       - !type:HealthChange
@@ -149,7 +149,7 @@
   flavor: alcohol
   color: "#da2059"
   metabolisms:
-    Drink:
+    Bloodstream:
       effects:
 # WL android species start
       - !type:HealthChange
@@ -190,7 +190,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Bloodstream:
       effects:
 # WL android species start
       - !type:HealthChange
@@ -231,7 +231,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Bloodstream:
       effects:
 # WL android species start
       - !type:HealthChange
@@ -272,7 +272,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Bloodstream:
       effects:
 # WL android species start
       - !type:HealthChange
@@ -313,7 +313,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Bloodstream:
       effects:
 # WL android species start
       - !type:HealthChange
@@ -354,7 +354,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Bloodstream:
       effects:
 # WL android species start
       - !type:HealthChange

@@ -303,10 +303,6 @@
         - !type:ReagentCondition
           reagent: Ethanol
           min: 10
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
 # WL android species end
 
 - type: reagent

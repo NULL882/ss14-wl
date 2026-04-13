@@ -16,17 +16,6 @@
     Bloodstream:
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Poison: 4
@@ -114,10 +103,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
           inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
 # WL species end
       - !type:HealthChange
         conditions:
@@ -128,10 +113,6 @@
         # Android
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
-          inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
           inverted: true
 # WL species end
         damage:
@@ -150,13 +131,6 @@
     Bloodstream:
       effects:
         - !type:HealthChange
-# WL species start
-          conditions:
-          # Golem
-          - !type:MetabolizerTypeCondition
-            type: [ Golem ]
-            inverted: true
-# WL species end
           damage:
             types:
               Poison: 2
@@ -165,13 +139,6 @@
           - !type:ReagentCondition
             reagent: GastroToxin
             min: 2
-# WL species start
-          # Golem
-          - !type:MetabolizerTypeCondition
-            type: [ Golem ]
-            inverted: true
-# WL species end
-          probability: 0.2
 
 - type: reagent
   id: Mold
@@ -186,13 +153,6 @@
     Bloodstream:
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Poison: 1
@@ -398,10 +358,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
           inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
 # WL species end
   plantMetabolism:
   - !type:PlantAdjustToxins
@@ -429,10 +385,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
           inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
 # WL species end
 
 - type: reagent
@@ -453,13 +405,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
   # TODO: PROPER hallucinations
 
 - type: reagent
@@ -483,10 +428,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
           inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
 # WL species end
       # todo: cough, sneeze
       - !type:HealthChange
@@ -499,10 +440,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
           inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
 # WL species end
         damage:
           types:
@@ -513,24 +450,11 @@
         type: Local
         messages: [ "histamine-effect-light-itchiness" ]
         probability: 0.1
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition
           reagent: Histamine
           min: 45
-# WL species start
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         type: Local
         visualType: Medium
         messages: [ "histamine-effect-heavy-itchiness" ]
@@ -561,15 +485,6 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [Animal]
-      # WL Cischi species start
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Cischi ]
-        damage:
-          groups:
-            Brute: -1
-            Burn: -1
 
 - type: reagent
   id: Amatoxin
@@ -584,13 +499,6 @@
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Poison: 3
@@ -607,13 +515,6 @@
     Bloodstream:
       effects:
         - !type:HealthChange
-# WL species start
-          conditions:
-          # Golem
-          - !type:MetabolizerTypeCondition
-            type: [ Golem ]
-            inverted: true
-# WL species end
           damage:
             types:
               Poison: 2
@@ -720,13 +621,6 @@
         damage:
           types:
             Poison: 0.06
-# WL Cischi species
-    Cischi:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: -0.01
 
 - type: reagent
   id: Pax
@@ -750,10 +644,6 @@
         # Android
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
-          inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
           inverted: true
 # WL species end
 
@@ -796,26 +686,10 @@
   contrabandSeverity: Major
   color: "#5C6274"
   metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-        damage:
-          groups:
-            Brute: -1
     Bloodstream:
       metabolismRate: 0.03 # Effectively once every 30 seconds.
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Poison: 0.6 # Makes it 20 damage per unit.
@@ -833,13 +707,6 @@
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Poison: 1.8
@@ -866,30 +733,10 @@
         - !type:ReagentCondition
           reagent: Vestine
           min: 5
-# WL species start
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
       - !type:MovementSpeedModifier
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
       - !type:HealthChange
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Asphyxiation: 1
@@ -911,21 +758,6 @@
       - !type:Electrocute
         electrocuteTime: 1
         probability: 0.5
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
-        time: 16
-# WL species end
 
 - type: reagent
   id: Lipolicide
