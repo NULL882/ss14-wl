@@ -1,10 +1,11 @@
 - type: entity
-  parent: [BaseFoldable, BaseItem]
+  parent: BaseItem
   id: BasePassport
   name: passport
   description: Papers, please!
   abstract: true
   components:
+  - type: Passport
   - type: Appearance
   - type: Flammable
     fireSpread: true
@@ -30,11 +31,6 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Foldable
-    folded: true
-    canFoldInsideContainer: true
-    unfoldVerbText: open-verb
-    foldVerbText: close-verb
   - type: Item
     size: Small
     inhandVisuals:
@@ -44,12 +40,9 @@
       - state: inhand-right
     storedRotation: 0
   - type: Sprite
+    scale: 0.8, 0.8
     layers:
-    - state: icon-opened
-      map: [ "unfoldedLayer" ]
-    - state: icon
-      map: ["foldedLayer"]
-      visible: false
+    - state: icon_open
 
 - type: entity
   parent: BasePassport
