@@ -84,5 +84,7 @@ public sealed class PassportSystem : EntitySystem
 
         if (desiredStateName != currentName)
             sprite.LayerSetState(0, desiredStateName);
+
+        Dirty(passport);
     }
 }

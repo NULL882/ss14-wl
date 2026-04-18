@@ -16,10 +16,6 @@ namespace Content.Server._WL.Passports.Systems;
 public sealed class NationalitySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
     public override void Initialize()
     {

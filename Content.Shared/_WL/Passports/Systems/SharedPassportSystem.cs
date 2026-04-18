@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+using System.Text;
 using Content.Shared._WL.Passports.Components;
 using Content.Shared._WL.Records;
 using Content.Shared.Administration.Logs;
@@ -51,9 +53,16 @@ public sealed class SharedPassportSystem : EntitySystem
 
         var species = _prototypeManager.Index<SpeciesPrototype>(component.OwnerProfile.Species);
 
+        var genderString = component.OwnerProfile.Gender switch
+        {
+            Gender.Female => Loc.GetString("identity-gender-feminine"),
+            Gender.Male => Loc.GetString("identity-gender-masculine"),
+            Gender.Epicene or Gender.Neuter or _ => Loc.GetString("identity-gender-person")
+        };
+
         args.PushMarkup(Loc.GetString("passport-registered-to", ("name", component.OwnerProfile.Name)), 50);
         args.PushMarkup(Loc.GetString("passport-species", ("species", Loc.GetString(species.Name))), 49);
-        args.PushMarkup(Loc.GetString("passport-gender", ("gender", component.OwnerProfile.Gender.ToString())), 48);
+        args.PushMarkup(Loc.GetString("passport-gender", ("gender", genderString)), 48);
         args.PushMarkup(Loc.GetString("passport-height", ("height", component.OwnerProfile.Height)), 47);
         args.PushMarkup(Loc.GetString("passport-year-of-birth", ("year", CurrentYear - component.OwnerProfile.Age)), 47);
 
@@ -87,20 +96,17 @@ public sealed class SharedPassportSystem : EntitySystem
             return;
         }
 
-        var confederationId = profile.Confederation;
-        if (string.IsNullOrEmpty(confederationId) || 
-            !_prototypeManager.TryIndex(confederationId, out ConfederationRecordsPrototype? confProto) ||
-            !_prototypeManager.TryIndex(confProto.PassportPrototype, out _))
-        {
-            confederationId = "NoConfederation";
-        }
+        var confederationId = string.IsNullOrEmpty(profile.Confederation)
+            ? "NoConfederation"
+            : profile.Confederation;
 
-        if (!_prototypeManager.TryIndex(confederationId, out confProto) ||
-            !_prototypeManager.TryIndex(profile.Confederation, 
-                                        out ConfederationRecordsPrototype? сonfederationRecordsPrototype)
-                                        || !_prototypeManager.TryIndex(сonfederationRecordsPrototype.PassportPrototype,
-                                        out EntityPrototype? entityPrototype))
-            return;
+        if (!_prototypeManager.TryIndex(confederationId, out ConfederationRecordsPrototype? confProto) ||
+            !_prototypeManager.TryIndex(confProto.PassportPrototype, out EntityPrototype? entityPrototype))
+        {
+            if (!_prototypeManager.TryIndex<ConfederationRecordsPrototype>("NoConfederation", out confProto) ||
+                !_prototypeManager.TryIndex(confProto.PassportPrototype, out entityPrototype))
+                return;
+        }
 
         var passportEntity = _entityManager.SpawnEntity(entityPrototype.ID, _sharedTransformSystem.GetMapCoordinates(mob));
         var passportComponent = _entityManager.GetComponent<PassportComponent>(passportEntity);
@@ -146,23 +152,24 @@ public sealed class SharedPassportSystem : EntitySystem
 
         var passportEvent = new PassportToggleEvent();
         RaiseLocalEvent(passport, ref passportEvent);
+
+        Dirty(passport);
     }
 
     private static string GenerateIdentityString(string seed)
     {
-        var hashCode = seed.GetHashCode();
-        System.Random random = new System.Random(hashCode);
+        var hash = SHA256.HashData(Encoding.UTF8.GetBytes(seed));
+        var result = new char[17];
+        var hashIndex = 0;
 
-        char[] result = new char[17];
-
-        int j = 0;
-        for (int i = 0; i < 15; i++)
+        for (var i = 0; i < result.Length; i++)
         {
-            if (i == 5 || i == 10)
+            if (i == 5 || i == 11)
             {
-                result[j++] = '-';
+                result[i] = '-';
+                continue;
             }
-            result[j++] = PIDChars[random.Next(PIDChars.Length)];
+            result[i] = PIDChars[hash[hashIndex++] % PIDChars.Length];  
         }
 
         return new string(result);
