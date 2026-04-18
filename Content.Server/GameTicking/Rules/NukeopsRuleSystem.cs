@@ -42,10 +42,7 @@ using Robust.Shared.Utility;
 using System.Data;
 using System.Linq;
 using System.Text;
-using Content.Shared.CombatMode.Pacification;
-using Content.Shared.Station.Components;
-using Content.Shared.Store.Components;
-using Robust.Shared.Prototypes;
+using Content.Shared.CombatMode.Pacification;//Corvax-DionaPacifist
 
 namespace Content.Server.GameTicking.Rules;
 
