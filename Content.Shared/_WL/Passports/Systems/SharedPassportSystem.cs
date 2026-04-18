@@ -19,7 +19,7 @@ using Content.Shared.GameTicking;
 
 namespace Content.Shared._WL.Passports.Systems;
 
-public class SharedPassportSystem : EntitySystem
+public sealed class SharedPassportSystem : EntitySystem
 {
     public const int CurrentYear = 3026;
     const string PIDChars = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
@@ -107,13 +107,11 @@ public class SharedPassportSystem : EntitySystem
 
         UpdatePassportProfile(new(passportEntity, passportComponent), profile);
 
-        bool passportStored = false;
-
         if (_inventory.TryGetSlotEntity(mob, "back", out var item) &&
-                EntityManager.TryGetComponent<StorageComponent>(item, out var inventory))
+                TryComp<StorageComponent>(item, out var inventory))
 
         {
-            if (!EntityManager.TryGetComponent<ItemComponent>(passportEntity, out var itemComp)
+            if (!TryComp<ItemComponent>(passportEntity, out var itemComp)
                 || !_storage.CanInsert(item.Value, passportEntity, out _, inventory, itemComp)
                 || !_storage.Insert(item.Value, passportEntity, out _, playSound: false))
             {
