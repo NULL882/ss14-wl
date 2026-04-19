@@ -1,5 +1,3 @@
-using System.Security.Cryptography;
-using System.Text;
 using Content.Shared._WL.Passports.Components;
 using Content.Shared._WL.Records;
 using Content.Shared.Administration.Logs;
@@ -152,18 +150,19 @@ public sealed class SharedPassportSystem : EntitySystem
 
     private static string GenerateIdentityString(string seed)
     {
-        var hash = SHA256.HashData(Encoding.UTF8.GetBytes(seed));
-        var result = new char[17];
-        var hashIndex = 0;
+        var hashCode = seed.GetHashCode();
+        System.Random random = new System.Random(hashCode);
 
-        for (var i = 0; i < result.Length; i++)
+        char[] result = new char[17];
+
+        int j = 0;
+        for (int i = 0; i < 15; i++)
         {
-            if (i == 5 || i == 11)
+            if (i == 5 || i == 10)
             {
-                result[i] = '-';
-                continue;
+                result[j++] = '-';
             }
-            result[i] = PIDChars[hash[hashIndex++] % PIDChars.Length];  
+            result[j++] = PIDChars[random.Next(PIDChars.Length)];
         }
 
         return new string(result);
