@@ -44,6 +44,14 @@
     scale: 0.8, 0.8
     layers:
     - state: icon_closed
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - WhitelistChameleonPassports
 
 - type: entity
   parent: BasePassport
@@ -92,3 +100,30 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Misc/Passports/metafront.rsi
+
+- type: entity
+  parent: BasePassport
+  id: SuspicionPassport
+  name: suspicion passport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/chameleon.rsi
+
+- type: entity
+  parent: [SuspicionPassport, BaseChameleon]
+  id: ChameleonPassport
+  name: suspicion passport
+  suffix: Chameleon, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/chameleon.rsi
+  - type: Tag
+    tags: [ ]
+  - type: ChameleonClothing
+    slot: [Belt]
+    default: SuspicionPassport
+    requireTag: WhitelistChameleonPassports
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
