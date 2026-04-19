@@ -5,6 +5,7 @@ using Content.Shared._WL.Records;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -24,6 +25,7 @@ namespace Content.Shared._WL.Passports.Systems;
 public sealed class SharedPassportSystem : EntitySystem
 {
     public const int CurrentYear = 3026;
+    private const string NoConfederationId = "NoConfederation";
     const string PIDChars = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
     private static readonly TimeSpan ToggleCooldown = TimeSpan.FromSeconds(0.5);
 
@@ -97,13 +99,13 @@ public sealed class SharedPassportSystem : EntitySystem
         }
 
         var confederationId = string.IsNullOrEmpty(profile.Confederation)
-            ? "NoConfederation"
+            ? NoConfederationId
             : profile.Confederation;
 
         if (!_prototypeManager.TryIndex(confederationId, out ConfederationRecordsPrototype? confProto) ||
             !_prototypeManager.TryIndex(confProto.PassportPrototype, out EntityPrototype? entityPrototype))
         {
-            if (!_prototypeManager.TryIndex<ConfederationRecordsPrototype>("NoConfederation", out confProto) ||
+            if (!_prototypeManager.TryIndex<ConfederationRecordsPrototype>(NoConfederationId, out confProto) ||
                 !_prototypeManager.TryIndex(confProto.PassportPrototype, out entityPrototype))
                 return;
         }

@@ -25,13 +25,10 @@ public sealed class NationalitySystem : EntitySystem
     }
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args) =>
-        ApplyNationality(args.Mob, args.JobId, args.Profile);
+        ApplyNationality(args.Mob, args.Profile);
 
-    public void ApplyNationality(EntityUid uid, ProtoId<JobPrototype>? jobId, HumanoidCharacterProfile profile)
+    public void ApplyNationality(EntityUid uid, HumanoidCharacterProfile profile)
     {
-        if (jobId == null || !_prototype.TryIndex(jobId, out var jobPrototypeToUse))
-            return;
-
         var nationalityId = profile.Confederation;
 
         if (!_prototype.TryIndex<ConfederationRecordsPrototype>(nationalityId, out var confederationRecordsPrototype))

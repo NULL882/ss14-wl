@@ -7,8 +7,6 @@ namespace Content.Client._WL.Passports.Systems;
 
 public sealed class PassportSystem : EntitySystem
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -19,7 +17,7 @@ public sealed class PassportSystem : EntitySystem
 
     private void OnPassportToggled(Entity<PassportComponent> passport, ref SharedPassportSystem.PassportToggleEvent evt)
     {
-        if (evt.Handled || !_entityManager.TryGetComponent<SpriteComponent>(passport, out var sprite))
+        if (evt.Handled || !TryComp<SpriteComponent>(passport, out var sprite))
             return;
 
         var currentState = sprite.LayerGetState(0);
@@ -55,7 +53,7 @@ public sealed class PassportSystem : EntitySystem
 
     private void OnPassportStartup(Entity<PassportComponent> passport, ref ComponentStartup args)
     {
-        if (!_entityManager.TryGetComponent<SpriteComponent>(passport, out var sprite))
+        if (!TryComp<SpriteComponent>(passport, out var sprite))
             return;
 
         var currentState = sprite.LayerGetState(0);
