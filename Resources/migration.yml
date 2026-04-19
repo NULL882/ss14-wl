@@ -890,3 +890,6 @@ CrateVendingMachineRestockDonutFilled: VendingMachineRestockDonut
 
 # 2026-04-13
 AnimalRandomSpawner: null
+
+# 2026-04-19 WL
+MetafrontCellPassport: MetafrontPassport

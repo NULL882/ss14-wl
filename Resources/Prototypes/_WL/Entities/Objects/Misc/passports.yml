@@ -6,6 +6,7 @@
   abstract: true
   components:
   - type: Passport
+    isClosed: true
   - type: Appearance
   - type: Flammable
     fireSpread: true
@@ -91,18 +92,3 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Misc/Passports/metafront.rsi
-
-- type: entity
-  parent: [BasePassport, BasePowerCell]
-  id: MetafrontCellPassport
-  name: metafront passport
-  suffix: Battery
-  components:
-  - type: Sprite
-    sprite: _WL/Objects/Misc/Passports/metafront_usb.rsi
-  - type: Battery
-    maxCharge: 360
-    startingCharge: 360
-  - type: Tag
-    tags:
-      - PowerCellSmall
