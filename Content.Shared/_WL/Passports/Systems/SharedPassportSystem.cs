@@ -13,12 +13,11 @@ using Content.Shared.Item;
 using Content.Shared.Preferences;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
-using Robust.Shared;
 using Content.Shared.Roles;
+using Content.Shared.GameTicking;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.GameTicking;
 
 namespace Content.Shared._WL.Passports.Systems;
 
@@ -55,16 +54,9 @@ public sealed class SharedPassportSystem : EntitySystem
 
         var species = _prototypeManager.Index<SpeciesPrototype>(component.OwnerProfile.Species);
 
-        var genderString = component.OwnerProfile.Gender switch
-        {
-            Gender.Female => Loc.GetString("identity-gender-feminine"),
-            Gender.Male => Loc.GetString("identity-gender-masculine"),
-            Gender.Epicene or Gender.Neuter or _ => Loc.GetString("identity-gender-person")
-        };
-
         args.PushMarkup(Loc.GetString("passport-registered-to", ("name", component.OwnerProfile.Name)), 50);
         args.PushMarkup(Loc.GetString("passport-species", ("species", Loc.GetString(species.Name))), 49);
-        args.PushMarkup(Loc.GetString("passport-gender", ("gender", genderString)), 48);
+        args.PushMarkup(Loc.GetString("passport-gender", ("gender", component.OwnerProfile.Gender.ToString())), 48);
         args.PushMarkup(Loc.GetString("passport-height", ("height", component.OwnerProfile.Height)), 47);
         args.PushMarkup(Loc.GetString("passport-year-of-birth", ("year", CurrentYear - component.OwnerProfile.Age)), 47);
 
