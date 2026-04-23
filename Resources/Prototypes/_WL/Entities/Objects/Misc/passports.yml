@@ -123,7 +123,20 @@
     slot: [Belt]
     default: SuspicionPassport
     requireTag: WhitelistChameleonPassports
+  - type: ChameleonPassport
+  - type: ActivatableUI
+    key: enum.ChameleonPassportUiKey.Key
+    verbText: agent-id-open-ui-verb
+    verbOnly: true
+  - type: UIRequiresLock
+    userInterfaceKeys:
+      - enum.ChameleonUiKey.Key
+      - enum.ChameleonPassportUiKey.Key
+    accessDeniedSound: null
+    popup: null
   - type: UserInterface
     interfaces:
+      enum.ChameleonPassportUiKey.Key:
+        type: ChameleonPassportBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface

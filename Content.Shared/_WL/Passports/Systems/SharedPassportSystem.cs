@@ -45,26 +45,18 @@ public sealed class SharedPassportSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, PassportComponent component, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange
-            || component.IsClosed
-            || component.OwnerProfile == null)
+        if (!args.IsInDetailsRange || component.IsClosed)
             return;
 
-        var species = _prototypeManager.Index<SpeciesPrototype>(component.OwnerProfile.Species);
+        // if (string.IsNullOrEmpty(component.DisplayName))
+        //     return;
 
-        args.PushMarkup(Loc.GetString("passport-registered-to", ("name", component.OwnerProfile.Name)), 50);
-        args.PushMarkup(Loc.GetString("passport-species", ("species", Loc.GetString(species.Name))), 49);
-        args.PushMarkup(Loc.GetString("passport-gender", ("gender", component.OwnerProfile.Gender.ToString())), 48);
-        args.PushMarkup(Loc.GetString("passport-height", ("height", component.OwnerProfile.Height)), 47);
-        args.PushMarkup(Loc.GetString("passport-year-of-birth", ("year", CurrentYear - component.OwnerProfile.Age)), 47);
-
-        args.PushMarkup(
-            Loc.GetString("passport-pid", ("pid", GenerateIdentityString(component.OwnerProfile.Name
-            + component.OwnerProfile.Height
-            + component.OwnerProfile.Age
-            + component.OwnerProfile.Height
-            + component.OwnerProfile.FlavorText))),
-            46);
+        args.PushText(Loc.GetString("passport-registered-to", ("name", component.DisplayName)), 50);
+        args.PushText(Loc.GetString("passport-species", ("species", component.DisplaySpecies)), 49);
+        args.PushText(Loc.GetString("passport-gender", ("gender", component.DisplayGender)), 48);
+        args.PushText(Loc.GetString("passport-height", ("height", component.DisplayHeight)), 47);
+        args.PushText(Loc.GetString("passport-year-of-birth", ("year", component.DisplayYearOfBirth)), 47);
+        args.PushText(Loc.GetString("passport-pid", ("pid", component.DisplayPID)), 46);
     }
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent ev)
@@ -125,8 +117,26 @@ public sealed class SharedPassportSystem : EntitySystem
     public void UpdatePassportProfile(Entity<PassportComponent> passport, HumanoidCharacterProfile profile)
     {
         passport.Comp.OwnerProfile = profile;
+
+        var speciesProto = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
+        var genderString = profile.Gender.ToString();
+        passport.Comp.DisplayName = profile.Name;
+        passport.Comp.DisplaySpecies = Loc.GetString(speciesProto.Name);
+        passport.Comp.DisplayGender = genderString switch
+        {
+            "Female" => Loc.GetString("passport-identity-gender-feminine"),
+            "Male" => Loc.GetString("passport-identity-gender-masculine"),
+            _ => Loc.GetString("passport-identity-gender-person")
+        };
+        passport.Comp.DisplayHeight = profile.Height.ToString();
+        passport.Comp.DisplayYearOfBirth = (CurrentYear - profile.Age).ToString();
+        passport.Comp.DisplayPID = GenerateIdentityString(
+            profile.Name + profile.Height + profile.Age + profile.Height + profile.FlavorText
+        );
+
         var evt = new PassportProfileUpdatedEvent(profile);
         RaiseLocalEvent(passport, ref evt);
+        Dirty(passport);
     }
 
     private void OnUseInHand(Entity<PassportComponent> passport, ref UseInHandEvent evt)

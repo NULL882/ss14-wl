@@ -16,4 +16,22 @@ public sealed partial class PassportComponent : Component
 
     [ViewVariables]
     public HumanoidCharacterProfile? OwnerProfile;
+
+    [DataField, AutoNetworkedField]
+    public string DisplayName = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string DisplaySpecies = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string DisplayGender = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string DisplayYearOfBirth = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string DisplayHeight = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string DisplayPID = string.Empty;
 }

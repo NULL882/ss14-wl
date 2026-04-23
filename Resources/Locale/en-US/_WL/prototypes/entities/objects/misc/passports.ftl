@@ -10,3 +10,7 @@ ent-SocconPassport = soccon passport
     .desc = Papers, please!
 ent-MetafrontPassport = metafront passport
     .desc = Papers, please!
+ent-SuspicionPassport = suspicion passport
+    .desc = Papers, please!
+ent-ChameleonPassport = { ent-SuspicionPassport }
+    .desc = { ent-SuspicionPassport.desc }

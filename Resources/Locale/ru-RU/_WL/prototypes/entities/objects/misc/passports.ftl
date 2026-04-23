@@ -10,3 +10,7 @@ ent-SocconPassport = паспорт СоцКона
     .desc = Добро пожаловать, товарищ!
 ent-MetafrontPassport = паспорт Метафронта
     .desc = Что странно, не содержит чипов с данными.
+ent-SuspicionPassport = подозрительный паспорт
+    .desc = Что-то в нём не так...
+ent-ChameleonPassport = { ent-SuspicionPassport }
+    .desc = { ent-SuspicionPassport.desc }
