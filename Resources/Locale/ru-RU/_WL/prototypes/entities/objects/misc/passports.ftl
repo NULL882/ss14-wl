@@ -17,6 +17,7 @@ ent-SuspicionPassport = подозрительный паспорт
     .desc = Что-то в нём не так...
 ent-ChameleonPassport = { ent-SuspicionPassport }
     .desc = { ent-SuspicionPassport.desc }
+    .suffix = Хамелеон
 ent-SyndicatePassport = паспорт Синдиката
     .desc = Выглядит устрашающе...
 ent-SyndicateChameleonPassport = { ent-SyndicatePassport }
