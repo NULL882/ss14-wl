@@ -1,6 +1,4 @@
 #nullable enable
-using System.Collections.Generic;
-using System.Linq;
 using Content.IntegrationTests.Fixtures;
 using Content.IntegrationTests.Pair;
 using Content.Server.GameTicking;
@@ -115,7 +113,7 @@ public sealed class JobTest : GameTest
         await pair.Server.WaitPost(() => ticker.StartRound());
         await pair.RunTicksSync(10);
 
-        await AssertJob(pair, Passenger); // WL-Changes
+        AssertJob(pair, Passenger);
 
         await pair.Server.WaitPost(() => ticker.RestartRound());
     }
@@ -138,7 +136,7 @@ public sealed class JobTest : GameTest
         await pair.Server.WaitPost(() => ticker.StartRound());
         await pair.RunTicksSync(10);
 
-        await AssertJob(pair, Engineer); // WL-Changes
+        AssertJob(pair, Engineer);
 
         await pair.Server.WaitPost(() => ticker.RestartRound());
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
@@ -147,7 +145,7 @@ public sealed class JobTest : GameTest
         await pair.Server.WaitPost(() => ticker.StartRound());
         await pair.RunTicksSync(10);
 
-        await AssertJob(pair, Passenger); // WL-Changes
+        AssertJob(pair, Passenger);
 
         await pair.Server.WaitPost(() => ticker.RestartRound());
     }
@@ -214,12 +212,12 @@ public sealed class JobTest : GameTest
         await pair.Server.WaitPost(() => ticker.StartRound());
         await pair.RunTicksSync(10);
 
-        await AssertJob(pair, Captain, captain); // WL-Changes
+        AssertJob(pair, Captain, captain);
         await Assert.MultipleAsync(async () => // WL-Changes
         {
             foreach (var engi in engineers)
             {
-                await AssertJob(pair, Engineer, engi); // WL-Changes
+                AssertJob(pair, Engineer, engi);
             }
         });
 
