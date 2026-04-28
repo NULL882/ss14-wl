@@ -175,7 +175,7 @@ public sealed class JobTest : GameTest
         await pair.Server.WaitPost(() => ticker.StartRound());
         await pair.RunTicksSync(10);
 
-        await AssertJob(pair, Captain); // WL-Changes
+        AssertJob(pair, Captain);
 
         await pair.Server.WaitPost(() => ticker.RestartRound());
     }
