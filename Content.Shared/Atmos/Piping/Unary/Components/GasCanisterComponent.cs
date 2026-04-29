@@ -32,6 +32,10 @@ public sealed partial class GasCanisterComponent : GasMaxPressureHolderComponent
     /// </summary>
     public float LastPressure = 0f;
 
+    #region GuidebookData
+
     [GuidebookData]
     public float Volume => Air.Volume;
+
+    #endregion
 }
