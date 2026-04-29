@@ -77,7 +77,7 @@ public sealed class JobTest : GameTest
         // WL-Changes-start
         HashSet<ProtoId<JobPrototype>>? disallowedJobs = null;
 
-        await pair.Server.WaitPost(() => disallowedJobs = playTimeTrackerSys.GetDisallowedJobs(user));
+        pair.Server.WaitPost(() => disallowedJobs = playTimeTrackerSys.GetDisallowedJobs(user));
 
         Assert.That(disallowedJobs, Does.Not.Contain(actualJob),
             $"Assigned job {actualJob} is disallowed for this player");
