@@ -27,7 +27,11 @@ public sealed class OwOAccentSystem : RelayAccentSystem<OwOAccentComponent>
 
         return message.Replace("!", _random.Pick(Faces))
             .Replace("r", "w").Replace("R", "W")
-            .Replace("l", "w").Replace("L", "W");
+            .Replace("l", "w").Replace("L", "W")
+             // Corvax-Localization-Start
+            .Replace("р", "в").Replace("Р", "В")
+            .Replace("л", "в").Replace("Л", "В");
+            // Corvax-Localization-End
     }
 
     protected override string AccentuateInternal(EntityUid uid, OwOAccentComponent comp, string message)

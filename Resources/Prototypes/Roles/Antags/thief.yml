@@ -18,7 +18,7 @@
   multiAntagSetting: NotExclusive
   startingGear: ThiefGear
   components:
-  - type: Pacified
+  #- type: Pacified # Corvax-MRP
   - type: Thieving
     stripTimeReduction: 2
     stealthy: true
