@@ -48,11 +48,11 @@
     "токсинов и кислородного голодания": 1
     "радиации и кислородного голодания": 1
 
-- type: weightedRandom
-  id: StationGoalRandomFrezonDestination
-  weights:
-    "склад научного отдела для дальнейших исследований": 1
-    "автоматическую торговую станцию": 1
+# - type: weightedRandom
+#   id: StationGoalRandomFrezonDestination
+#   weights:
+#     "склад научного отдела для дальнейших исследований": 1
+#     "автоматическую торговую станцию": 1
 
 - type: weightedRandom
   id: StationGoalRandomOre

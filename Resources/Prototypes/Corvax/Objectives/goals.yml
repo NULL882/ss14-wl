@@ -190,9 +190,9 @@
 
 - type: stationGoal
   id: StationGoalFrezonSynthesis
-  department: [ Engineering]
+  department: [ Engineering ]
   text: |
-      - Синтез канистры чистого фрезона и доставка этой канистры на {{StationGoalRandomFrezonDestination}}.
+      - Синтез канистры чистого фрезона и доставка этой канистры на автоматическую торговую станцию.
 
 - type: stationGoal
   id: StationGoalTeslaGenerator
