@@ -197,7 +197,7 @@ public sealed class JobTest : GameTest
         await pair.RunTicksSync(10);
 
         AssertJob(pair, Captain, captain);
-        Assert.MultipleAsync(() =>
+        await Assert.MultipleAsync(async () =>
         {
             foreach (var engi in engineers)
             {
