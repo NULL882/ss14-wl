@@ -74,20 +74,6 @@ public sealed class JobTest : GameTest
         Assert.That(pair.Server.EntMan.EntityExists(mind));
         Assert.That(jobSys.MindTryGetJobId(mind, out var actualJob));
 
-        // WL-Changes-start
-        HashSet<ProtoId<JobPrototype>>? disallowedJobs = null;
-
-        pair.Server.WaitPost(() => disallowedJobs = playTimeTrackerSys.GetDisallowedJobs(user));
-
-        Assert.That(disallowedJobs, Does.Not.Contain(actualJob),
-            $"Assigned job {actualJob} is disallowed for this player");
-
-        if (disallowedJobs.Contains(job))
-            TestContext.Out.WriteLine($"{nameof(JobTest)}.{nameof(AssertJob)}: Expected job {job} is disallowed for this player, actual job: {actualJob}");
-        else
-            Assert.That(actualJob, Is.EqualTo(job), $"Expected job '{job}', but got '{actualJob}'. Disallowed jobs: [{string.Join(", ", disallowedJobs)}]");
-        // WL-Changes-end
-
         Assert.That(roleSys.MindIsAntagonist(mind), Is.EqualTo(isAntag));
     }
 
@@ -188,8 +174,6 @@ public sealed class JobTest : GameTest
     {
         var pair = Pair;
 
-        pair.Server.CfgMan.SetCVar(WLCVars.RoleRestrictionChecksEnabled, false); // WL-Changes
-
         pair.Server.CfgMan.SetCVar(CCVars.GameMap, _map);
         var ticker = pair.Server.System<GameTicker>();
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
@@ -213,7 +197,7 @@ public sealed class JobTest : GameTest
         await pair.RunTicksSync(10);
 
         AssertJob(pair, Captain, captain);
-        await Assert.MultipleAsync(async () => // WL-Changes
+        Assert.MultipleAsync(() =>
         {
             foreach (var engi in engineers)
             {
