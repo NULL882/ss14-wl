@@ -201,30 +201,4 @@ public abstract class SharedJobSystem : EntitySystem
 
         return job is not null;
     }
-
-    /// <summary>
-    ///     Tries to get the job name for this mind.
-    ///     Returns unknown if not found.
-    /// </summary>
-    public bool MindTryGetJobName([NotNullWhen(true)] EntityUid? mindId, out string name)
-    {
-        if (MindTryGetJob(mindId, out var prototype))
-        {
-            name = prototype.LocalizedName;
-            return true;
-        }
-
-        name = Loc.GetString("generic-unknown-title");
-        return false;
-    }
-
-    /// <summary>
-    ///     Tries to get the job name for this mind.
-    ///     Returns unknown if not found.
-    /// </summary>
-    public string MindTryGetJobName([NotNullWhen(true)] EntityUid? mindId)
-    {
-        MindTryGetJobName(mindId, out var name);
-        return name;
-    }
 }

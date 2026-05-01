@@ -71,7 +71,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
             skinColor,
             new()
         );
-        return EnsureValid(appearance, species, sex, []); // Corvax-Sponsors-Edit
+        return EnsureValid(appearance, species, sex);
     }
 
     private static IReadOnlyList<Color> _realisticEyeColors = new List<Color>
@@ -116,7 +116,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         return new(color.RByte, color.GByte, color.BByte);
     }
 
-    public static HumanoidCharacterAppearance EnsureValid(HumanoidCharacterAppearance appearance, ProtoId<SpeciesPrototype> species, Sex sex, string[] sponsorPrototypes) // Corvax-Sponsors
+    public static HumanoidCharacterAppearance EnsureValid(HumanoidCharacterAppearance appearance, ProtoId<SpeciesPrototype> species, Sex sex)
     {
         var eyeColor = ClampColor(appearance.EyeColor);
 
@@ -131,24 +131,6 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
             var strategy = proto.Index(speciesProto.SkinColoration).Strategy;
             var organs = markingManager.GetOrgans(species);
             skinColor = strategy.EnsureVerified(skinColor);
-
-            // Corvax-Sponsors-Start
-            foreach (var (organ, layerMarkings) in validatedMarkings)
-            {
-                foreach (var (_, markings) in layerMarkings)
-                {
-                    for (int i = markings.Count - 1; i >= 0; i--)
-                    {
-                        var marking = markings[i];
-                        if (proto.TryIndex(marking.MarkingId, out MarkingPrototype? markingProto) &&
-                            markingProto.SponsorOnly && !sponsorPrototypes.Contains(marking.MarkingId))
-                        {
-                            markings.RemoveAt(i);
-                        }
-                    }
-                }
-            }
-            // Corvax-Sponsors-End
 
             foreach (var (organ, markings) in appearance.Markings)
             {
