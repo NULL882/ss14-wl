@@ -22,6 +22,7 @@
         layer:
         - WallLayer
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
     damageModifierSet: Metallic
   - type: Destructible

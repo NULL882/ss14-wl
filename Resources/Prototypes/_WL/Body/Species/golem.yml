@@ -93,6 +93,7 @@
   components:
     - type: OfferItem # CorvaxGoob-Offer
     - type: Damageable
+    - type: Injurable
       damageContainer: Golemical
       damageModifierSet: Golem
     - type: Hunger

@@ -202,6 +202,7 @@
     normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 25
   - type: Damageable
+  - type: Injurable
     damageContainer: BioRobotic
     damageModifierSet: BioRobotic
   - type: Vocal

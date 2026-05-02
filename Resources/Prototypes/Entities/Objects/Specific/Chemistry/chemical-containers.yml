@@ -18,6 +18,7 @@
     price: 60
 # WL-Changes: Resprite  Day Start
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
     damageModifierSet: Glass
   - type: Destructible
@@ -54,7 +55,7 @@
     damage:
       types:
         Blunt: 5
-# WL-Changes: Resprite  Day End
+# WL-Changes: Resprite Day End
   - type: Tag
     tags:
     - ChemDispensable

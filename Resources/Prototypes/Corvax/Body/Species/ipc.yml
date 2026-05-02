@@ -87,6 +87,7 @@
   components:
   - type: CharacterInformation
   - type: Damageable
+  - type: Injurable
     damageContainer: SiliconIpc
     damageModifierSet: Ipc
   - type: DamageVisuals
