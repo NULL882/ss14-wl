@@ -1,7 +1,7 @@
 using Content.Server._WL.Nutrition.Components;
 using Content.Server._WL.Nutrition.Events;
 using Content.Server.Body.Systems;
-using Content.Server.Chemistry.Containers.EntitySystems;
+using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Popups;
 using Content.Shared.Body.Components;
@@ -62,7 +62,7 @@ public sealed partial class SuckableFoodSystem : EntitySystem
 
         var isNewLoop = _updateTimer >= UpdatePeriod;
 
-        var query = EntityQueryEnumerator<SuckableFoodComponent, SolutionContainerManagerComponent>();
+        var query = EntityQueryEnumerator<SuckableFoodComponent, SolutionManagerComponent>();
         while (query.MoveNext(out var food, out var suckableComp, out var solContainerManComp))
         {
             if (!Exists(suckableComp.SuckingEntity))
@@ -117,7 +117,7 @@ public sealed partial class SuckableFoodSystem : EntitySystem
     }
 
     public bool EnsureSolutionEntity(
-        Entity<SuckableFoodComponent, SolutionContainerManagerComponent?> foodEnt,
+        Entity<SuckableFoodComponent, SolutionManagerComponent?> foodEnt,
         [NotNullWhen(true)] out Entity<SolutionComponent>? solEnt,
         [NotNullWhen(true)] out Solution? solution)
     {
@@ -127,11 +127,11 @@ public sealed partial class SuckableFoodSystem : EntitySystem
         if (!Resolve(foodEnt, ref foodEnt.Comp2, false))
             return false;
 
-        if (!_solutionContainerSystem.EnsureSolutionEntity((foodEnt, foodEnt.Comp2), foodEnt.Comp1.Solution, out var ent))
+        if (!_solutionContainerSystem.EnsureSolution((foodEnt, foodEnt.Comp2), foodEnt.Comp1.Solution, out var ent))
             return false;
 
         solEnt = ent;
-        solution = ent.Value.Comp.Solution;
+        solution = ent.Comp.Solution;
 
         return true;
     }

@@ -16,11 +16,6 @@ public sealed class AntagSpawnerSystem : EntitySystem
 
     private void OnSelectEntity(Entity<AntagSpawnerComponent> ent, ref AntagSelectEntityEvent args)
     {
-        // Corvax-start
-        if (args.Antag.SpawnerPrototype != null)
-            antagEnt = Spawn(def.RoundstartEntity);
-        else
-            args.Entity = Spawn(ent.Comp.Prototype);
-        // Corvax-end
+        args.Entity = Spawn(ent.Comp.Prototype);
     }
 }
