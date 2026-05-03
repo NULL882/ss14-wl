@@ -18,9 +18,9 @@
     price: 60
 # WL-Changes: Resprite  Day Start
   - type: Damageable
+    damageModifierSet: Glass
   - type: Injurable
     damageContainer: Inorganic
-    damageModifierSet: Glass
   - type: Destructible
     thresholds:
     - trigger:

@@ -147,9 +147,9 @@
       types:
         Slash: 7
   - type: Damageable
+    damageModifierSet: Tajaran
   - type: Injurable
     damageContainer: Biological
-    damageModifierSet: Tajaran
   - type: Respirator
     damage:
       types:

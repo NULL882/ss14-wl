@@ -93,9 +93,9 @@
   components:
     - type: OfferItem # CorvaxGoob-Offer
     - type: Damageable
+      damageModifierSet: Golem
     - type: Injurable
       damageContainer: Golemical
-      damageModifierSet: Golem
     - type: Hunger
       thresholds:
         Overfed: 200
