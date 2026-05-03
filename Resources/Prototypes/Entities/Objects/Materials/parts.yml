@@ -39,6 +39,13 @@
       map: ["base"]
   - type: Item
     heldPrefix: rods
+  # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_WL/Items/handling/materials/iron_rod_pick_up.ogg
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: Construction
     graph: MetalRod
     node: MetalRod

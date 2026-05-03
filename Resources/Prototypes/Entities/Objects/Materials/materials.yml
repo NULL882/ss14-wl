@@ -24,6 +24,18 @@
       reagents:
       - ReagentId: Cellulose
         Quantity: 10
+  # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_WL/Items/handling/materials/cardboard_pick_up.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_WL/Items/handling/materials/cardboard_drop.ogg
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: Item
     heldPrefix: cardboard
   - type: FloorTile
@@ -199,6 +211,18 @@
   name: wood
   suffix: Full
   components:
+  # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_WL/Items/handling/materials/wood_pick_up.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_WL/Items/handling/materials/wood_drop.ogg
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: PhysicalComposition
     materialComposition:
       Wood: 100

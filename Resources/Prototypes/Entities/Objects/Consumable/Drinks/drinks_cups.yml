@@ -6,6 +6,14 @@
   components:
   - type: Item
     size: Tiny
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/other/Cup/pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/other/Cup/drop.ogg
+  # Goobstation edit end
   - type: FitsInDispenser
     solution: drink
   - type: SolutionTransfer

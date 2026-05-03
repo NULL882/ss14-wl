@@ -3,6 +3,17 @@
   parent: [SolutionWelder, BaseItem]
   id: BaseWelder
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/weldingtool_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/welder_drop.ogg
+  # Goobstation edit end
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/welder_drop.ogg
   - type: Sprite
     layers:
     - state: icon
