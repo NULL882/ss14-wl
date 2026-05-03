@@ -19,6 +19,7 @@
     state: base
   - type: SpriteFade
   - type: Damageable
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:
