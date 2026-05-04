@@ -108,7 +108,8 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         return EnsureValid(
             new HumanoidCharacterAppearance(newEyeColor, newSkinColor, new()),
             species,
-            sex);
+            sex,
+            []); // Corvax-Sponsors-Edit
     }
 
     public static Color ClampColor(Color color)
