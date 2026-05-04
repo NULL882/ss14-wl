@@ -165,12 +165,12 @@
       types:
         Bloodloss:
           -1.0
-  - type: SolutionRegeneration
-    solution: chemicals
-    generated:
-      reagents:
-      - ReagentId: Cryoxadone
-        Quantity: 0.1
+#   - type: SolutionRegeneration
+#     solution: chemicals
+#     generated:
+#       reagents:
+#       - ReagentId: Cryoxadone
+#         Quantity: 0.1
   - type: Temperature
     currentTemperature: 283.15
     specificHeat: 42
