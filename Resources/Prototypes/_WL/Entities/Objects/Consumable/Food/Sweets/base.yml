@@ -10,13 +10,11 @@
     size: Tiny
   - type: SolutionContainerManager
     solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Sugar
-          Quantity: 5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Sugar
+        Quantity: 5
 
 # Мятные палочки
 - type: entity

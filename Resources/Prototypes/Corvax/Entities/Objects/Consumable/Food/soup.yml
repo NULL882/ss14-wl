@@ -20,13 +20,11 @@
         - state: pelmeni
     - type: SolutionContainerManager
       solutions:
-        food:
-          maxVol: 30
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 10
-            - ReagentId: Protein
-              Quantity: 20
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 10
+          - ReagentId: Protein
+            Quantity: 20
     - type: Tag
       tags:
       - Meat
