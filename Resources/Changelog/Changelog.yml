@@ -50,6 +50,7 @@ Entries:
   id: 9170
   time: '2025-10-29T03:05:55.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40570
+Entries:
 - author: Hitlinemoss
   changes:
   - message: Department heads are now legally able to approve the use of their departmentally-restricted
@@ -4085,3 +4086,51 @@ Entries:
   id: 9677
   time: '2026-04-30T02:14:30.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/43810
+- author: riccardi48
+  changes:
+  - message: Added missing localization to cargo sale console.
+    type: Fix
+  id: 9678
+  time: '2026-05-01T14:58:18.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43831
+- author: Princess-Cheeseballs
+  changes:
+  - message: Solutions now overflow again.
+    type: Fix
+  - message: Udders now have milk again.
+    type: Fix
+  - message: Mice are now the correct size.
+    type: Fix
+  - message: Pill solutions no longer react again.
+    type: Fix
+  id: 9679
+  time: '2026-05-01T19:13:40.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43823
+- author: Princess-Cheeseballs
+  changes:
+  - message: Grindable entities as sources of reagents show up in the chemistry guidebook
+      again.
+    type: Fix
+  id: 9680
+  time: '2026-05-01T20:14:44.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43743
+- author: Princess-Cheeseballs
+  changes:
+  - message: Spray effects work again.
+    type: Fix
+  - message: Items that purge solutions now work again.
+    type: Fix
+  - message: Items that regenerate solutions now work again.
+    type: Fix
+  - message: Welders now properly drain fuel.
+    type: Fix
+  id: 9681
+  time: '2026-05-01T21:35:57.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43789
+- author: jessicamaybe
+  changes:
+  - message: Half pipes now only hold 100 L
+    type: Tweak
+  id: 9682
+  time: '2026-05-04T02:30:33.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43809
