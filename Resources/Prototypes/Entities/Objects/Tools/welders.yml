@@ -11,9 +11,6 @@
     sound:
       path: /Audio/Items/welder_drop.ogg
   # Goobstation edit end
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/welder_drop.ogg
   - type: Sprite
     layers:
     - state: icon
