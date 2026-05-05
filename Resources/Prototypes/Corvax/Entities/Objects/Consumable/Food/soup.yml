@@ -19,7 +19,7 @@
         - state: bowl
         - state: pelmeni
     - type: SolutionContainerManager
-      solutions:
+      solution:
         reagents:
           - ReagentId: Nutriment
             Quantity: 10
