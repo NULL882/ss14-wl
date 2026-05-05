@@ -13,7 +13,7 @@
     - type: Sprite
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
       state: chickentabaka
-    - type: SolutionContainerManager
+    - type: Solution
       solutions:
         reagents:
         - ReagentId: Nutriment
@@ -36,7 +36,7 @@
     - type: Sprite
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
       state: cutletcischi
-    - type: SolutionContainerManager
+    - type: Solution
       solutions:
         reagents:
         - ReagentId: Nutriment
@@ -59,7 +59,7 @@
     - type: Sprite
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
       state: onionslicecischi
-    - type: SolutionContainerManager
+    - type: Solution
       solutions:
         reagents:
         - ReagentId: Nutriment
@@ -81,7 +81,7 @@
   - type: Sprite
     sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
     state: pemmican
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
       reagents:
       - ReagentId: Nutriment
