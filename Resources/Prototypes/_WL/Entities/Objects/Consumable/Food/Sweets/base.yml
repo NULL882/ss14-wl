@@ -8,8 +8,8 @@
     - FoodSnack
   - type: Item
     size: Tiny
-  - type: SolutionContainerManager
-    solutions:
+  - type: Solution
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 5
