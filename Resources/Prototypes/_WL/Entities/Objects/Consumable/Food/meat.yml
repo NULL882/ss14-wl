@@ -37,7 +37,7 @@
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
       state: cutletcischi
     - type: Solution
-      solutions:
+      solution:
         reagents:
         - ReagentId: Nutriment
           Quantity: 7
@@ -60,7 +60,7 @@
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
       state: onionslicecischi
     - type: Solution
-      solutions:
+      solution:
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -82,7 +82,7 @@
     sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
     state: pemmican
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 7
