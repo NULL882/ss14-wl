@@ -14,7 +14,7 @@
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
       state: chickentabaka
     - type: Solution
-      solutions:
+      solution:
         reagents:
         - ReagentId: Nutriment
           Quantity: 7
