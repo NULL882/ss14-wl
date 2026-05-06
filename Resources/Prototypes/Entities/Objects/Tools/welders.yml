@@ -88,6 +88,7 @@
     useSound:
       collection: Welder
     qualities: Welding
+  - type: WeldingSparks # Goobstation
   - type: Welder
   - type: PointLight
     enabled: false
@@ -180,6 +181,8 @@
     fuelReagent: Plasma
   - type: RequiresEyeProtection
     statusEffectTime: 5 # less harmful; sunglasses can block it
+  - type: WeldingSparks # Goobstation
+    effect: EffectWeldingSparksExp
 
 - type: entity
   parent: [SolutionWelder, SolutionToolGinormous] # Bluespace technology
