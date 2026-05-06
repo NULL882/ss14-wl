@@ -289,7 +289,6 @@
 - type: entity
   parent: [ OrganBaseStomach, OrganTajaranInternal, OrganTajaranMetabolizer ]
   id: OrganTajaranStomach
-  components:
 
 - type: entity
   parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganTajaranInternal, OrganTajaranMetabolizer ]
