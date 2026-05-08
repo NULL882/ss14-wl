@@ -59,9 +59,8 @@
   id: DrinkKvassGlass
   suffix: kvass
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
+    - type: Solution
+      solution:
           maxVol: 60
           reagents:
             - ReagentId: Kvass
