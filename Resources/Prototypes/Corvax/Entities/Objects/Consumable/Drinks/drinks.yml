@@ -5,11 +5,9 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: Alexander
-        Quantity: 30
-  #- type: Drink
+        Quantity: 60
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/alexander.rsi
     state: icon
@@ -21,11 +19,9 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: BadTouch
-        Quantity: 30
-  #- type: Drink
+        Quantity: 60
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/badTouch.rsi
     state: icon
@@ -37,11 +33,9 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: Boyarsky
-        Quantity: 30
-  #- type: Drink
+        Quantity: 60
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/boyarsky.rsi
     state: icon
@@ -53,11 +47,9 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: Bramble
-        Quantity: 30
-  #- type: Drink
+        Quantity: 60
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/bramble.rsi
     state: icon
@@ -69,10 +61,10 @@
   components:
     - type: Solution
       solution:
-        maxVol: 30
+        maxVol: 60
         reagents:
           - ReagentId: Kvass
-            Quantity: 30
+            Quantity: 60
     - type: Sprite
       sprite: Corvax/Objects/Consumable/Drinks/kvass.rsi
 
@@ -83,11 +75,9 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: MaiTai
-        Quantity: 30
-  #- type: Drink
+        Quantity: 60
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/maiTai.rsi
     state: icon
@@ -99,11 +89,9 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: Negroni
-        Quantity: 30
-  #- type: Drink
+        Quantity: 60
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/negroni.rsi
     state: icon
@@ -115,11 +103,9 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: OldFashioned
-        Quantity: 30
-  #- type: Drink
+        Quantity: 60
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/oldFashioned.rsi
     state: icon
@@ -131,11 +117,9 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: Paloma
-        Quantity: 30
-  #- type: Drink
+        Quantity: 60
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/paloma.rsi
     state: icon
@@ -147,11 +131,9 @@
   components:
   - type: Solution
     solution:
-      maxVol: 30
       reagents:
       - ReagentId: Yorsh
-        Quantity: 30
-  #- type: Drink
+        Quantity: 60
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/yorsh.rsi
     state: icon

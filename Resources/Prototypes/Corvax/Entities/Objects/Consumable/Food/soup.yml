@@ -20,6 +20,7 @@
         - state: pelmeni
     - type: Solution
       solution:
+        maxVol: 30
         reagents:
           - ReagentId: Nutriment
             Quantity: 10

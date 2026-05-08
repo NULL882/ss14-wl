@@ -11,7 +11,7 @@
     sprite: Corvax/Objects/Specific/Medical/brigmedichypo.rsi
   - type: Solution
     solution:
-      maxVol: 5
+      maxVol: 10
   - type: UseDelay
     delay: 2.5
   - type: StaticPrice
