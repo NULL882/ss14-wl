@@ -17,6 +17,7 @@
     components:
     - ZombieImmune
     - AntagImmune
+    requireAll: false
   briefing:
     text: zombie-patientzero-role-greeting
     color: Plum
