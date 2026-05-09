@@ -644,6 +644,14 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             return false;
         }
 
+        //WL-Changes: test fix start
+        if (!IsEntityValid(antagEnt.Value, prototype))
+        {
+            DeSelectSession(gameRule, prototype, player);
+            return false;
+        }
+        //WL-Changes: test fix end
+
         InitializeAntag(gameRule, prototype, antagEnt.Value, player);
         return true;
     }
