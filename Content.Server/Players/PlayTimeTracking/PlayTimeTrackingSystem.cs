@@ -301,11 +301,14 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
             playTimes = [];
 
-        var prefs = (HumanoidCharacterProfile?)_preferencesManager.GetPreferencesOrNull(player.UserId).SelectedCharacter;
+        var prefs = _preferencesManager.GetPreferencesOrNull(player.UserId);
+
+        if (prefs == null)
+            return disallowed;
 
         foreach (var job in _prototypes.EnumeratePrototypes<JobPrototype>())
         {
-            if (!JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, /*WL-Changes-start*/_cfg/*WL-Changes-end*/, prefs))
+            if (!JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, /*WL-Changes-start*/_cfg/*WL-Changes-end*/, prefs.SelectedCharacter))
                 disallowed.Add(job.ID);
         }
 
