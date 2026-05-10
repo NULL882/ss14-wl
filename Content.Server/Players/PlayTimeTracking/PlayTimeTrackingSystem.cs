@@ -314,7 +314,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         }
         catch (KeyNotFoundException e)
         {
-            Log.Error("GetDisallowedJobs break everything. IDK why. Kill me pls.");
+            Log.Error("GetDisallowedJobs break everything. IDK why. Kill me pls. Exeption: {e.Message}");
             return null;
         }
     }
