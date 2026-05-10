@@ -19,18 +19,18 @@ using Color = Robust.Shared.Maths.Color;
 
 namespace Content.Client.Sprite;
 
-public sealed class ContentSpriteSystem : EntitySystem
+public sealed partial class ContentSpriteSystem : EntitySystem
 {
-    [Dependency] private readonly IClientAdminManager _adminManager = default!;
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IResourceManager _resManager = default!;
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
-    [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
+    [Dependency] private IClientAdminManager _adminManager = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IResourceManager _resManager = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private IRuntimeLog _runtimeLog = default!;
     //WL-Changes-start
-    [Dependency] private readonly ILogManager _logMan = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private ILogManager _logMan = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private ISawmill _sawmill = default!;
     //WL-Changes-end
@@ -298,11 +298,16 @@ public sealed class ContentSpriteSystem : EntitySystem
         ev.Verbs.Add(verb);
     }
 
+    /// <summary>
+    /// This is horrible. I asked PJB if there's an easy way to render straight to a texture outside of the render loop
+    /// and she also mentioned this as a bad possibility.
+    /// </summary>
     //WL-Changes-start
-    public sealed class ContentSpriteControl<T> : Control where T : unmanaged, IPixel<T>
+    private sealed partial class ContentSpriteControl : Control
     {
-        [Dependency] private readonly ILogManager _logMan = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private IEntityManager _entManager = default!;
+        [Dependency] private ILogManager _logMan = default!;
+        [Dependency] private IResourceManager _resManager = default!;
 
         private readonly AppearanceSystem _appearance;
 

@@ -57,22 +57,22 @@ namespace Content.Server.Antag;
 /// </remarks>
 public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelectionComponent>
 {
-    [Dependency] private readonly IBanManager _ban = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IServerPreferencesManager _pref = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ArrivalsSystem _arrivals = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly FollowerSystem _follower = default!;
-    [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
-    [Dependency] private readonly JobSystem _jobs = default!;
-    [Dependency] private readonly LoadoutSystem _loadout = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!;
-    [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private IBanManager _ban = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IServerPreferencesManager _pref = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private ArrivalsSystem _arrivals = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private FollowerSystem _follower = default!;
+    [Dependency] private GhostRoleSystem _ghostRole = default!;
+    [Dependency] private JobSystem _jobs = default!;
+    [Dependency] private LoadoutSystem _loadout = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private PlayTimeTrackingSystem _playTime = default!;
+    [Dependency] private RoleSystem _role = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -637,6 +637,15 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         AntagSpecifierPrototype prototype,
         ICommonSession player)
     {
+        // Re-check entity validity now that the player has spawned.
+        // Pre-selection bypasses the blacklist (AttachedEntity was null at that time),
+        // so we must verify here before applying antag components.
+        if (player.AttachedEntity is { } existing && !IsEntityValid(existing, prototype))
+        {
+            DeSelectSession(gameRule, prototype, player);
+            return false;
+        }
+
         // Get a valid entity to initialize
         if (!TryGetAntagEntity(gameRule, prototype, player, out var antagEnt))
         {
@@ -644,13 +653,14 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             return false;
         }
 
-        //WL-Changes: test fix start
+        // Rechecking the first case.
         if (!IsEntityValid(antagEnt.Value, prototype))
         {
+            if (antagEnt.Value != player.AttachedEntity)
+                QueueDel(antagEnt.Value);
             DeSelectSession(gameRule, prototype, player);
             return false;
         }
-        //WL-Changes: test fix end
 
         InitializeAntag(gameRule, prototype, antagEnt.Value, player);
         return true;
