@@ -293,24 +293,30 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     [return: NotNullIfNotNull(nameof(player))]
     public HashSet<ProtoId<JobPrototype>>? GetDisallowedJobs(ICommonSession? player)
     {
+        try {
+            if (player == null)
+                return null;
 
-        if (player == null)
-            return null;
+            var disallowed = new HashSet<ProtoId<JobPrototype>>();
 
-        var disallowed = new HashSet<ProtoId<JobPrototype>>();
+            if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
+                playTimes = [];
 
-        if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
-            playTimes = [];
+            var prefs = (HumanoidCharacterProfile?)_preferencesManager.GetPreferences(player.UserId).SelectedCharacter;
 
-        var prefs = (HumanoidCharacterProfile?)_preferencesManager.GetPreferences(player.UserId).SelectedCharacter;
+            foreach (var job in _prototypes.EnumeratePrototypes<JobPrototype>())
+            {
+                if (!JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, /*WL-Changes-start*/_cfg/*WL-Changes-end*/, prefs))
+                    disallowed.Add(job.ID);
+            }
 
-        foreach (var job in _prototypes.EnumeratePrototypes<JobPrototype>())
-        {
-            if (!JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, /*WL-Changes-start*/_cfg/*WL-Changes-end*/, prefs))
-                disallowed.Add(job.ID);
+            return disallowed;
         }
-
-        return disallowed;
+        catch (KeyNotFoundException e)
+        {
+            Log.Error("GetDisallowedJobs break everything. IDK why. Kill me pls.");
+            return null;
+        }
     }
 
     [return: NotNullIfNotNull(nameof(userId))]
