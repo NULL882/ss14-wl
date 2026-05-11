@@ -10,7 +10,7 @@ namespace Content.Server._WL.Languages;
 /// <summary>
 /// Play languages sounds
 /// </summary>
-public sealed class LanguagesSoundsSystem : EntitySystem
+public sealed partial class LanguagesSoundsSystem : EntitySystem
 {
     [Dependency] private LanguagesSystem _languages = default!;
     [Dependency] private SharedTransformSystem _xforms = default!;

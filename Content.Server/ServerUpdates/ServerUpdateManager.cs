@@ -32,7 +32,7 @@ public sealed partial class ServerUpdateManager : IPostInjectInit
     [Dependency] private ILogManager _logManager = default!;
 
     //WL-Chages-start
-    [Dependency] private readonly DiscordWebhook _discord = default!;
+    [Dependency] private DiscordWebhook _discord = default!;
 
     private WebhookIdentifier? _discordWebhook;
     //WL-Changes-end

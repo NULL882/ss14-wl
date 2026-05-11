@@ -24,7 +24,10 @@ public sealed partial class PresetIdCardSystem : EntitySystem
     [Dependency] private IdCardSystem _cardSystem = default!;
     [Dependency] private SharedAccessSystem _accessSystem = default!;
     [Dependency] private StationSystem _stationSystem = default!;
-    [Dependency] private ContainerSystem _container = default!; //WL-Changes
+    // WL-Changes: start
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private RoleSystem _role = default!;
+    // WL-Changes: end
 
     private static string IDItemSlot = "id"; //WL-Changes
 

@@ -29,7 +29,7 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
     [Dependency] private GuidebookUIController _guidebook = default!;
     [Dependency] private FeedbackPopupUIController _feedback = null!;
     //WL-Changes-start
-    [Dependency] private readonly PlayerSessionInfoUIController _sessionInfo = default!;
+    [Dependency] private PlayerSessionInfoUIController _sessionInfo = default!;
     //WL-Changes-end
 
     private Options.UI.EscapeMenu? _escapeWindow;

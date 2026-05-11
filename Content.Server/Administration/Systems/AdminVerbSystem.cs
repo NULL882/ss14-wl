@@ -76,7 +76,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private IPlayerManager _playerManager = default!;
         [Dependency] private SiliconLawSystem _siliconLawSystem = default!;
 
-        [Dependency] private readonly LanguagesSystem _languages = default!; //WL-Changes: Languages
+        [Dependency] private LanguagesSystem _languages = default!; //WL-Changes: Languages
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 

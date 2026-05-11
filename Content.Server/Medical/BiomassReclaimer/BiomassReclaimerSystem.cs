@@ -55,7 +55,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         [Dependency] private MaterialStorageSystem _material = default!;
         [Dependency] private SharedMindSystem _minds = default!;
         [Dependency] private InventorySystem _inventory = default!;
-        [Dependency] private readonly TagSystem _tag = default!; // WL-Changes
+        [Dependency] private TagSystem _tag = default!; // WL-Changes
 
         public static readonly ProtoId<MaterialPrototype> BiomassPrototype = "Biomass";
 

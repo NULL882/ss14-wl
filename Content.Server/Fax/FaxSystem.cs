@@ -62,7 +62,7 @@ public sealed partial class FaxSystem : EntitySystem
     [Dependency] private EmagSystem _emag = default!;
 
     // WL-Changes-start
-    [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
+    [Dependency] private MaterialStorageSystem _materialStorage = default!;
     // WL-Changes-end
 
     private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";

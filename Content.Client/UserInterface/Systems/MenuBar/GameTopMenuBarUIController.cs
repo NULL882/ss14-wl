@@ -26,7 +26,7 @@ public sealed partial class GameTopMenuBarUIController : UIController
     [Dependency] private GuidebookUIController _guidebook = default!;
     [Dependency] private EmotesUIController _emotes = default!;
 
-    [Dependency] private readonly LanguagesUIController _languages = default!; //WL-Changes: Languages
+    [Dependency] private LanguagesUIController _languages = default!; //WL-Changes: Languages
 
     private GameTopMenuBar? GameTopMenuBar => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>();
 
