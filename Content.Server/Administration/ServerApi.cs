@@ -76,8 +76,8 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private IServerDbManager _db = default!;
 
     //WL-Changes-start
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IBaseServer _baseServer = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private IBaseServer _baseServer = default!;
     //WL-Changes-end
 
     //WL-Changes-start

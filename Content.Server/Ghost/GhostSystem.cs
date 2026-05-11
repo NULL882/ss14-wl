@@ -10,6 +10,7 @@ using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Shared._WL.CCVars;
+using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;

@@ -36,9 +36,9 @@ public abstract partial class SharedCreamPieSystem : EntitySystem
     [Dependency] private TriggerSystem _trigger = default!;
     [Dependency] private INetManager _net = default!;
     // WL Golem species start
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private SharedBuckleSystem _buckle = default!;
     // WL Golem species end
 
     public override void Initialize()
@@ -136,7 +136,7 @@ public abstract partial class SharedCreamPieSystem : EntitySystem
         // TODO: Check if they even have a head that can be hit.
         SetCreamPied(creamPied.AsNullable(), true);
         _stunSystem.TryUpdateParalyzeDuration(creamPied.Owner, creamPie.ParalyzeTime);
-        
+
         // WL Golem species start
         if (!_buckle.IsBuckled(creamPied.Owner))
         {

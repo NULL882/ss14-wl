@@ -32,7 +32,7 @@ public sealed partial class RadioSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ChatSystem _chat = default!;
 
-    [Dependency] private readonly LanguagesSystem _languages = default!; //WL-Changes: Languages
+    [Dependency] private LanguagesSystem _languages = default!; //WL-Changes: Languages
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();

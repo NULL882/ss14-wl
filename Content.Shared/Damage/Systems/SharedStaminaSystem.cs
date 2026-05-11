@@ -50,9 +50,9 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     [Dependency] private StatusEffectsSystem _status = default!;
     [Dependency] protected SharedStunSystem StunSystem = default!;
     // WL Golem species start
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private SharedBuckleSystem _buckle = default!;
     // WL Golem species end
 
     [Dependency] private EntityQuery<StaminaComponent> _stamQuery = default!;

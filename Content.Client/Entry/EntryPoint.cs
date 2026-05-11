@@ -80,7 +80,6 @@ namespace Content.Client.Entry
         [Dependency] private IEntitySystemManager _entitySystemManager = default!;
         [Dependency] private ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
         [Dependency] private ClientFeedbackManager _feedbackManager = null!;
-        [Dependency] private IPrototypeManager _prototypeManager = default!; // Wl-Changes: Alert Level Rework
 
         public override void PreInit()
         {

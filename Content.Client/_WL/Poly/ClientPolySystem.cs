@@ -9,8 +9,8 @@ namespace Content.Client._WL.Poly
     [UsedImplicitly]
     public sealed partial class ClientPolySystem : EntitySystem
     {
-        [Dependency] private readonly ContentSpriteSystem _contentSpriteSystem = default!;
-        [Dependency] private readonly ILogManager _log = default!;
+        [Dependency] private ContentSpriteSystem _contentSpriteSystem = default!;
+        [Dependency] private ILogManager _log = default!;
 
         private ISawmill _sawmill = default!;
 
